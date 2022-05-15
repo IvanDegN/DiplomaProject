@@ -19,7 +19,7 @@
         <Rectangle Grid.ColumnSpan="2" Fill="#0000FF"></Rectangle>
         <Rectangle Grid.ColumnSpan="2" Grid.Row="2" Fill="#0000FF"></Rectangle>
         <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Карточка сотрудника" FontSize="30"></TextBlock>
-        
+
         <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -29,8 +29,8 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="4" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Content="Назад"  Width="100" FontSize="15" Name="BtnGoBack" Click="BtnGoBack_Click"></Button>
-            <Button Grid.Column="3" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Content="Сохранить" Width="100" FontSize="15"></Button>
-            <Button Grid.Column="2" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Отмена" Width="100" FontSize="15"></Button>
+            <Button Grid.Column="3" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Content="Сохранить" Width="100" FontSize="15" Name="BtnSave" Click="BtnSave_Click"></Button>
+            <Button Grid.Column="2" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Отмена" Width="100" FontSize="15" Name="BtnCancel" Click="BtnCancel_Click"></Button>
         </Grid>
         <TabControl Grid.Column="1"  Grid.Row="1">
             <TabItem Header="Общие сведения">
@@ -260,7 +260,77 @@
             <TabItem Header="Льготы">
                 <DataGrid></DataGrid>
             </TabItem>
-            <TabItem Header="Дополнительные сведения и увольнение"></TabItem>
+            <TabItem Header="Дополнительные сведения и увольнение">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Дополнительные сведения:"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="341*"></ColumnDefinition>
+                            <ColumnDefinition Width="311*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Основание прекращения трудового договора (увольнение):" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <TextBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
+                        <Label Content="Дата увольнения:" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+                        <DatePicker Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></DatePicker>
+                        <Label Content="Приказ (распоряжение):" Grid.Row="2" HorizontalAlignment="Right"></Label>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="1" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Center" Content="Уволить" Width="100" FontSize="15" Name="BntDismiss" Click="BntDismiss_Click"></Button>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="№" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
+                            <Label Grid.Row="1" Content="От" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                            <DatePicker Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></DatePicker>
+                        </Grid>
+                        
+                    </Grid>
+
+                </Grid>
+            </TabItem>
             <TabItem Header="Образование">
                 <DataGrid></DataGrid>
             </TabItem>

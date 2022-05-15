@@ -47,5 +47,20 @@ namespace DiplomaProject
             this.Close();
             staffingTable.Show();
         }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BntDismiss_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
