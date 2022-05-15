@@ -1,0 +1,288 @@
+﻿<Window x:Class="DiplomaProject.EmployeeCard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomaProject"
+        mc:Ignorable="d"
+        Title="Карточка сотрудника" Height="550" MinHeight="530" Width="1000" MinWidth="950" WindowStartupLocation="CenterScreen" FontFamily="Arial">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="89*"></ColumnDefinition>
+            <ColumnDefinition Width="175*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.ColumnSpan="2" Fill="#0000FF"></Rectangle>
+        <Rectangle Grid.ColumnSpan="2" Grid.Row="2" Fill="#0000FF"></Rectangle>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Карточка сотрудника" FontSize="30"></TextBlock>
+        
+        <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="4" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Content="Назад"  Width="100" FontSize="15" Name="BtnGoBack" Click="BtnGoBack_Click"></Button>
+            <Button Grid.Column="3" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Content="Сохранить" Width="100" FontSize="15"></Button>
+            <Button Grid.Column="2" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Отмена" Width="100" FontSize="15"></Button>
+        </Grid>
+        <TabControl Grid.Column="1"  Grid.Row="1">
+            <TabItem Header="Общие сведения">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Трудовой договор:" VerticalAlignment="Bottom" Grid.ColumnSpan="2"></Label>
+                        <Label Content="Номер:" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1"></Label>
+                        <TextBox  Height="20"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="TbEmploymentContract" Grid.Column="1" Grid.Row="1"></TextBox>
+                        <Label Content="Дата:" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2"></Label>
+                        <DatePicker  HorizontalAlignment="Stretch" VerticalAlignment="Center"  Name="DpEmploymentContractDate" Grid.Column="1" Grid.Row="2"></DatePicker>
+                    </Grid>
+
+
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Фамилия:" HorizontalAlignment="Stretch" VerticalAlignment="Center" ></Label>
+                        <TextBox Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Stretch" Height="20" VerticalAlignment="Center" Name="TbLastName"></TextBox>
+                        <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Имя:"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" Height="20"  HorizontalAlignment="Stretch" Name="TbName"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="0"  Content="Отчество:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"  Name="TbMiddleName" Height="20"></TextBox>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Дата рождения:" HorizontalAlignment="Stretch" VerticalAlignment="Center"></Label>
+                        <DatePicker Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Name="DpBirthDate" ></DatePicker>
+                        <Label Grid.Row="2" Content="Гражданство:" HorizontalAlignment="Stretch" VerticalAlignment="Center"></Label>
+                        <ComboBox Grid.Row="2" Grid.Column="1" Name="CbCitizenship" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                    </Grid>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Content="Профессия:"  HorizontalAlignment="Right"></Label>
+                        <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+                        <Label Grid.Row="1" VerticalAlignment="Center" Content="Состояние в браке:"></Label>
+                        <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Center"></ComboBox>
+                        <Label Grid.Row="3" VerticalAlignment="Center" Content="Паспорт:" HorizontalAlignment="Left"></Label>
+                    </Grid>
+
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Серия и номер:"  HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="1"  Height="20" HorizontalAlignment="Stretch" VerticalAlignment="Center"></TextBox>
+                        <Label Grid.Row="1" VerticalAlignment="Center" Content="Дата выдачи:" HorizontalAlignment="Right"></Label>
+                        <DatePicker Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"></DatePicker>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Content="Выдан:" HorizontalAlignment="Right" ></Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Адрес места жительства:" VerticalAlignment="Bottom"></Label>
+                        <Label Grid.Row="1" Grid.Column="0" Content="По паспорту:" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Height="20" HorizontalAlignment="Stretch"/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Content="Почтовый индекс по паспорту:"></Label>
+                        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="20" ></TextBox>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Content="Фактический адрес:" HorizontalAlignment="Right"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"  Height="20" HorizontalAlignment="Stretch"></TextBox>
+                        <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Content="Фактический индекс:" HorizontalAlignment="Right"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="20"></TextBox>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Пол: " HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                        <Label Content="Номер телефона:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
+                        <Label Grid.Row="2" Content="Место рождения: " HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <ComboBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Знание языка:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" ></ComboBox>
+                        <Label Content="Степень знания:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                        <Label Content="Образование:" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <ComboBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="116*"></ColumnDefinition>
+                            <ColumnDefinition Width="101*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Дата регистрации по месту жительства:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <DatePicker Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></DatePicker>
+                        <Label Content="Табельный номер: " Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
+                        <Label Grid.Row="2" Content="ИНН:" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
+                    </Grid>
+
+                    <Grid Grid.Row="4" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="СНИЛС:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                        <TextBox Grid.Column="1" Height="20" HorizontalAlignment="Stretch" VerticalAlignment="Center"></TextBox>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Воинский учёт"></TabItem>
+            <TabItem Header="Прием на работу и переводы на другую работу">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Аттестация">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Повышение квалификации">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Профессиональная переподготовка">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Награды">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Отпуск">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Льготы">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Дополнительные сведения и увольнение"></TabItem>
+            <TabItem Header="Образование">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Стаж работы">
+                <DataGrid></DataGrid>
+            </TabItem>
+            <TabItem Header="Состав семьи">
+                <DataGrid></DataGrid>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="169*"></RowDefinition>
+                <RowDefinition Height="40*"></RowDefinition>
+                <RowDefinition Height="40*"></RowDefinition>
+                <RowDefinition Height="40*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image></Image>
+            <Button Grid.Row="1" Height="30" Content="Изменить фото" FontSize="15" Name="BtnChangeImage" Click="BtnChangeImage_Click" Margin="5"></Button>
+            <Button Grid.Row="2" Height="30" Content="Штатное расписание" FontSize="15" Name="BtnShowStaffingTable" Click="BtnShowStaffingTable_Click" Margin="5"></Button>
+            <Button Grid.Row="3" Height="30" Content="Печать карточки сотрудника" FontSize="15" Name="BtnPrintEmployeeCard" Click="BtnPrintEmployeeCard_Click" Margin="5"></Button>
+        </Grid>
+
+    </Grid>
+</Window>
