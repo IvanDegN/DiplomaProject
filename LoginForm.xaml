@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomaProject"
         mc:Ignorable="d"
-        Title="Вход" Height="450" Width="800">
+        Title="Вход" Height="450" Width="300">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.ColumnSpan="2" Fill="#0000FF"></Rectangle>
+        <Rectangle Grid.ColumnSpan="2" Fill="#0000FF" Grid.Row="4"></Rectangle>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Вход" FontSize="30"></TextBlock>
+        <Label Content="Логин:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" FontSize="20"></Label>
+        <Label Content="Пароль:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" FontSize="20"></Label>
+        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="100" FontSize="20"></TextBox>
+        <PasswordBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="100" FontSize="20"></PasswordBox>
+        <Button Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="100" Grid.Row="3" Content="Войти" Name="BtnLogin" Click="BtnLogin_Click" FontSize="20" HorizontalContentAlignment="Center"></Button>
     </Grid>
 </Window>

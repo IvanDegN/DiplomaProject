@@ -31,9 +31,9 @@ namespace DiplomaProject
 
         private void BtnShowStaffingTable_Click(object sender, RoutedEventArgs e)
         {
-            StaffingTable staffingTable = new StaffingTable();
+            ListEmployees listEmployees = new ListEmployees();
             this.Close();
-            staffingTable.Show();
+            listEmployees.Show();
         }
 
         private void BtnPrintEmployeeCard_Click(object sender, RoutedEventArgs e)
@@ -43,9 +43,9 @@ namespace DiplomaProject
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            StaffingTable staffingTable = new StaffingTable();
+            ListEmployees listEmployees = new ListEmployees();
             this.Close();
-            staffingTable.Show();
+            listEmployees.Show();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

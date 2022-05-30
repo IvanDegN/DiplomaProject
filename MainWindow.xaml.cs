@@ -25,21 +25,22 @@ namespace DiplomaProject
             InitializeComponent();
         }
 
-        private void BtnStaffingTable_Click(object sender, RoutedEventArgs e)
-        {
-            StaffingTable staffingTable = new StaffingTable();
-            this.Close();
-            staffingTable.Show();
-        }
+        
 
         private void BtnStaff_Click(object sender, RoutedEventArgs e)
         {
-
+            ListEmployees listEmployees = new ListEmployees();
+            listEmployees.Show();
+            this.Close();
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-
+            var result = MessageBox.Show("Вы действительно хотите выйти?", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.Cancel);
+            if(result == MessageBoxResult.OK)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }
