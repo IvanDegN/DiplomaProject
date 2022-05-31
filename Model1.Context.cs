@@ -48,13 +48,10 @@ namespace DiplomaProject
         public virtual DbSet<KindWork> KindWork { get; set; }
         public virtual DbSet<LanguageKnowledge> LanguageKnowledge { get; set; }
         public virtual DbSet<LanguageKnowledgeType> LanguageKnowledgeType { get; set; }
-        public virtual DbSet<MaritalStatus> MaritalStatus { get; set; }
-        public virtual DbSet<MaritalStatusCode> MaritalStatusCode { get; set; }
         public virtual DbSet<MilitaryCommissariat> MilitaryCommissariat { get; set; }
         public virtual DbSet<MilitaryRank> MilitaryRank { get; set; }
         public virtual DbSet<MilitaryRecords> MilitaryRecords { get; set; }
         public virtual DbSet<PersonalCard> PersonalCard { get; set; }
-        public virtual DbSet<PlaceBirth> PlaceBirth { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Profession> Profession { get; set; }
         public virtual DbSet<ProfessionalDevelopment> ProfessionalDevelopment { get; set; }
@@ -76,5 +73,8 @@ namespace DiplomaProject
         public virtual DbSet<WorkExperienceBonus> WorkExperienceBonus { get; set; }
         public virtual DbSet<WorkExperienceContinuous> WorkExperienceContinuous { get; set; }
         public virtual DbSet<WorkExperienceTotal> WorkExperienceTotal { get; set; }
+        public virtual DbSet<PlaceBirth> PlaceBirth { get; set; }
+        public virtual DbSet<MaritalStatus> MaritalStatus { get; set; }
+        public virtual DbSet<EducationTitle> EducationTitle { get; set; }
     }
 }

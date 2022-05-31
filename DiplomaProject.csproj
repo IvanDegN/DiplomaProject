@@ -109,6 +109,9 @@
     <Compile Include="Education.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EducationTitle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EligibilityCategory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -142,9 +145,6 @@
     <Compile Include="MaritalStatus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="MaritalStatusCode.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="MilitaryCommissariat.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -159,6 +159,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Citizenship.cs" />
+    <Compile Include="Model\DB.cs" />
+    <Compile Include="Model\Education.cs" />
+    <Compile Include="Model\EducationTitle.cs" />
+    <Compile Include="Model\LanguageKnowledge.cs" />
+    <Compile Include="Model\LanguageKnowledgeType.cs" />
+    <Compile Include="Model\MaritalStatus.cs" />
+    <Compile Include="Model\PlaceBirth.cs" />
+    <Compile Include="Model\Profession.cs" />
+    <Compile Include="Model\Sex.cs" />
     <Compile Include="PersonalCard.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

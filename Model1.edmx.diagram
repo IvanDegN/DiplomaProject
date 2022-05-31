@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ab12a2aacafc4d67b42c448ccad98675" Name="Diagram1">
+      <Diagram DiagramId="ab12a2aacafc4d67b42c448ccad98675" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.AdmissionAndDismissal" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.BenefitDocument" Width="1.5" PointX="1.5" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Benefits" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Dismissal" Width="1.5" PointX="0.75" PointY="30.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.DismissalReason" Width="1.5" PointX="1.5" PointY="34.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.DocumentAboutEducation" Width="1.5" PointX="0.75" PointY="97.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Education" Width="1.5" PointX="3" PointY="97.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Education" Width="2.625" PointX="3" PointY="97.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.EligibilityCategory" Width="1.5" PointX="1.5" PointY="52.75" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.EmploymentContract" Width="1.5" PointX="0.75" PointY="39.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.FamilyComposition" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
@@ -28,16 +28,13 @@
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.KindWork" Width="1.5" PointX="0.75" PointY="42.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.LanguageKnowledge" Width="1.5" PointX="3" PointY="103.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.LanguageKnowledgeType" Width="1.5" PointX="0.75" PointY="103.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MaritalStatus" Width="1.5" PointX="3" PointY="106" IsExpanded="true" />
-        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MaritalStatusCode" Width="1.5" PointX="0.75" PointY="106.25" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MilitaryCommissariat" Width="1.5" PointX="1.5" PointY="55.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MilitaryRank" Width="1.5" PointX="1.5" PointY="57.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MilitaryRecords" Width="1.5" PointX="0.75" PointY="48.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.PersonalCard" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.PlaceBirth" Width="1.5" PointX="3" PointY="30.75" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Position" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Profession" Width="1.5" PointX="3" PointY="40.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.ProfessionalDevelopment" Width="1.5" PointX="0.75" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.ProfessionalDevelopment" Width="3.25" PointX="0.75" PointY="62.875" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.ProfessionalDevelopmentDocumentation" Width="1.5" PointX="1.5" PointY="67.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.ProfessionalDevelopmentType" Width="1.5" PointX="1.5" PointY="70" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.ProfessionalRetraining" Width="1.5" PointX="0.75" PointY="72.375" IsExpanded="true" />
@@ -81,8 +78,6 @@
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_PersonalCard_KindWork" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_LanguageKnowledge_LanguageKnowledgeType" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_LanguageKnowledge" ManuallyRouted="false" />
-        <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_MaritalStatus_MaritalStatusCode" ManuallyRouted="false" />
-        <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_MaritalStatus" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_MilitaryRecords_MilitaryCommissariat" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_MilitaryRecords_MilitaryRank" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_MilitaryRecords_StockCategory" ManuallyRouted="false" />
@@ -94,7 +89,6 @@
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_PersonalCard_TypeWork" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_PersonalCard_Vacation" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_PersonalCard" ManuallyRouted="false" />
-        <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_PlaceBirth" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_Profession" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_ProfessionalDevelopment_ProfessionalDevelopmentDocumentation" ManuallyRouted="false" />
@@ -108,6 +102,12 @@
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_WorkExperience_WorkExperienceBonus" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_WorkExperience_WorkExperienceContinuous" ManuallyRouted="false" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_WorkExperience_WorkExperienceTotal" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.PlaceBirth" Width="1.5" PointX="7.375" PointY="8.875" />
+        <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_PlaceBirth" />
+        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MaritalStatus" Width="1.5" PointX="9.375" PointY="8.875" />
+        <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_MaritalStatus" />
+        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.EducationTitle" Width="1.5" PointX="10.375" PointY="4.875" />
+        <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Education_EducationTitle" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

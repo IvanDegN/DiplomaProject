@@ -41,16 +41,17 @@ namespace DiplomaProject
         public int SNILS { get; set; }
         public int IdSex { get; set; }
         public int IdMilitaryRegistration { get; set; }
+        public string PassportGet { get; set; }
     
         public virtual Citizenship Citizenship { get; set; }
         public virtual Education Education { get; set; }
         public virtual FamilyComposition FamilyComposition { get; set; }
         public virtual LanguageKnowledge LanguageKnowledge { get; set; }
-        public virtual MaritalStatus MaritalStatus { get; set; }
         public virtual PersonalCard PersonalCard { get; set; }
-        public virtual PlaceBirth PlaceBirth { get; set; }
         public virtual Profession Profession { get; set; }
         public virtual Sex Sex { get; set; }
         public virtual WorkExperience WorkExperience { get; set; }
+        public virtual PlaceBirth PlaceBirth { get; set; }
+        public virtual MaritalStatus MaritalStatus { get; set; }
     }
 }

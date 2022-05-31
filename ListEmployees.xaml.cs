@@ -23,10 +23,7 @@ namespace DiplomaProject
         {
             InitializeComponent();
             
-            if(EmployeesGrid.SelectedIndex != 0)
-            {
-
-            }
+            
 
         }
 
@@ -55,6 +52,28 @@ namespace DiplomaProject
         private void CbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void EmployeesGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (EmployeesGrid.SelectedIndex != 0)
+            {
+                EmployeeCard employeeCard = new EmployeeCard();
+
+                foreach (var item in DB.db.Worker)
+                {
+                    var id = EmployeesGrid.Columns.FirstOrDefault(x => x.Equals(item.ServiceNumber));
+
+                    if (id != null && id.Equals(item.ServiceNumber))
+                    {
+                        employeeCard.Show();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Необходимо выбрать строку!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
+            }
         }
     }
 }

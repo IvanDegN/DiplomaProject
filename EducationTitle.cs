@@ -12,18 +12,19 @@ namespace DiplomaProject
     using System;
     using System.Collections.Generic;
     
-    public partial class MaritalStatusCode
+    public partial class EducationTitle
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MaritalStatusCode()
+        public EducationTitle()
         {
-            this.MaritalStatus = new HashSet<MaritalStatus>();
+            this.Education = new HashSet<Education>();
         }
     
-        public int IdMaritalStatusCode { get; set; }
-        public int MaritalStatusCode1 { get; set; }
+        public int EducationTitleId { get; set; }
+        public string EducationTitle1 { get; set; }
+        public int EducationTitleCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MaritalStatus> MaritalStatus { get; set; }
+        public virtual ICollection<Education> Education { get; set; }
     }
 }

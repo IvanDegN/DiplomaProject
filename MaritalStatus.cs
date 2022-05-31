@@ -22,9 +22,8 @@ namespace DiplomaProject
     
         public int IdMaritalStatus { get; set; }
         public string MaritalStatus1 { get; set; }
-        public int IdMaritalStatusCode { get; set; }
+        public int MaritalStatusCode { get; set; }
     
-        public virtual MaritalStatusCode MaritalStatusCode { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Worker> Worker { get; set; }
     }

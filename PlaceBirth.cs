@@ -22,7 +22,7 @@ namespace DiplomaProject
     
         public int IdPlaceBirth { get; set; }
         public string PlaceBirth1 { get; set; }
-        public int PlaceBirthCode { get; set; }
+        public string PlaceBirthCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Worker> Worker { get; set; }
