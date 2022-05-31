@@ -18,6 +18,7 @@ namespace DiplomaProject
         public Position()
         {
             this.HiringTransfersOtherJobs = new HashSet<HiringTransfersOtherJobs>();
+            this.MilitaryRecords = new HashSet<MilitaryRecords>();
         }
     
         public int IdPosition { get; set; }
@@ -26,5 +27,7 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HiringTransfersOtherJobs> HiringTransfersOtherJobs { get; set; }
         public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MilitaryRecords> MilitaryRecords { get; set; }
     }
 }

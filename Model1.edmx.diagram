@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.DismissalReason" Width="1.5" PointX="1.5" PointY="34.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.DocumentAboutEducation" Width="1.5" PointX="0.75" PointY="97.875" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Education" Width="2.625" PointX="3" PointY="97.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.EligibilityCategory" Width="1.5" PointX="1.5" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.EligibilityCategory" Width="1.5" PointX="2.25" PointY="52.75" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.EmploymentContract" Width="1.5" PointX="0.75" PointY="39.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.FamilyComposition" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.HiringTransfersOtherJobs" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
@@ -30,7 +30,7 @@
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.LanguageKnowledgeType" Width="1.5" PointX="0.75" PointY="103.375" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MilitaryCommissariat" Width="1.5" PointX="1.5" PointY="55.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MilitaryRank" Width="1.5" PointX="1.5" PointY="57.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MilitaryRecords" Width="1.5" PointX="0.75" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.MilitaryRecords" Width="3.625" PointX="0.75" PointY="48.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.PersonalCard" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Position" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.Profession" Width="1.5" PointX="3" PointY="40.25" IsExpanded="true" />
@@ -108,6 +108,7 @@
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Worker_MaritalStatus" />
         <EntityTypeShape EntityType="vkr_Otdel_KadrovModel.EducationTitle" Width="1.5" PointX="10.375" PointY="4.875" />
         <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_Education_EducationTitle" />
+        <AssociationConnector Association="vkr_Otdel_KadrovModel.FK_MilitaryRecords_Position" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -152,7 +152,7 @@
             <PropertyRef Name="EligibilityCategoryId" />
           </Key>
           <Property Name="EligibilityCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EligibilityCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EligibilityCategory" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EmploymentContract">
           <Key>
@@ -231,14 +231,14 @@
             <PropertyRef Name="MilitaryCommissariatId" />
           </Key>
           <Property Name="MilitaryCommissariatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MilitaryCommissariat" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="MilitaryCommissariat" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="MilitaryRank">
           <Key>
             <PropertyRef Name="MilitaryRankId" />
           </Key>
           <Property Name="MilitaryRankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MilitaryRank" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MilitaryRank" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MilitaryRecords">
           <Key>
@@ -251,6 +251,12 @@
           <Property Name="FullCodeDesignationVUS" Type="varchar(max)" />
           <Property Name="EligibilityCategoryId" Type="int" Nullable="false" />
           <Property Name="MilitaryCommissariatId" Type="int" Nullable="false" />
+          <Property Name="GeneralMilitaryRecords" Type="nvarchar(max)" />
+          <Property Name="SpecialMilitaryRecords" Type="nvarchar(max)" />
+          <Property Name="MarkDismissalMilitaryRegistry" Type="nvarchar" MaxLength="50" />
+          <Property Name="MilitaryRecordsDate" Type="date" />
+          <Property Name="HRworker" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdPosition" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PersonalCard">
           <Key>
@@ -395,7 +401,7 @@
             <PropertyRef Name="StockCategoryId" />
           </Key>
           <Property Name="StockCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StockCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StockCategory" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TypeWork">
           <Key>
@@ -683,6 +689,18 @@
             </Principal>
             <Dependent Role="MilitaryRecords">
               <PropertyRef Name="MilitaryRankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MilitaryRecords_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="MilitaryRecords" Type="Self.MilitaryRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="IdPosition" />
+            </Principal>
+            <Dependent Role="MilitaryRecords">
+              <PropertyRef Name="IdPosition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1234,6 +1252,10 @@
             <End Role="MilitaryRank" EntitySet="MilitaryRank" />
             <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
           </AssociationSet>
+          <AssociationSet Name="FK_MilitaryRecords_Position" Association="Self.FK_MilitaryRecords_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
+          </AssociationSet>
           <AssociationSet Name="FK_MilitaryRecords_StockCategory" Association="Self.FK_MilitaryRecords_StockCategory">
             <End Role="StockCategory" EntitySet="StockCategory" />
             <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
@@ -1546,7 +1568,7 @@
             <PropertyRef Name="EligibilityCategoryId" />
           </Key>
           <Property Name="EligibilityCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EligibilityCategory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EligibilityCategory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MilitaryRecords" Relationship="Self.FK_MilitaryRecords_EligibilityCategory" FromRole="EligibilityCategory" ToRole="MilitaryRecords" />
         </EntityType>
         <EntityType Name="EmploymentContract">
@@ -1628,7 +1650,7 @@
             <PropertyRef Name="MilitaryCommissariatId" />
           </Key>
           <Property Name="MilitaryCommissariatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MilitaryCommissariat1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MilitaryCommissariat1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MilitaryRecords" Relationship="Self.FK_MilitaryRecords_MilitaryCommissariat" FromRole="MilitaryCommissariat" ToRole="MilitaryRecords" />
         </EntityType>
         <EntityType Name="MilitaryRank">
@@ -1636,7 +1658,7 @@
             <PropertyRef Name="MilitaryRankId" />
           </Key>
           <Property Name="MilitaryRankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MilitaryRank1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MilitaryRank1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MilitaryRecords" Relationship="Self.FK_MilitaryRecords_MilitaryRank" FromRole="MilitaryRank" ToRole="MilitaryRecords" />
         </EntityType>
         <EntityType Name="MilitaryRecords">
@@ -1656,6 +1678,13 @@
           <NavigationProperty Name="MilitaryRank" Relationship="Self.FK_MilitaryRecords_MilitaryRank" FromRole="MilitaryRecords" ToRole="MilitaryRank" />
           <NavigationProperty Name="StockCategory" Relationship="Self.FK_MilitaryRecords_StockCategory" FromRole="MilitaryRecords" ToRole="StockCategory" />
           <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_MilitaryRecords" FromRole="MilitaryRecords" ToRole="PersonalCard" />
+          <Property Name="GeneralMilitaryRecords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialMilitaryRecords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MarkDismissalMilitaryRegistry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MilitaryRecordsDate" Type="DateTime" Precision="0" />
+          <Property Name="HRworker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdPosition" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="vkr_Otdel_KadrovModel.FK_MilitaryRecords_Position" FromRole="MilitaryRecords" ToRole="Position" />
         </EntityType>
         <EntityType Name="PersonalCard">
           <Key>
@@ -1707,6 +1736,7 @@
           <Property Name="TitlePosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="HiringTransfersOtherJobs" Relationship="Self.FK_HiringTransfersOtherJobs_Position" FromRole="Position" ToRole="HiringTransfersOtherJobs" />
           <NavigationProperty Name="ProfessionalRetrainingHiringTransfersOtherJobs" Relationship="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position" FromRole="Position" ToRole="ProfessionalRetrainingHiringTransfersOtherJobs" />
+          <NavigationProperty Name="MilitaryRecords" Relationship="vkr_Otdel_KadrovModel.FK_MilitaryRecords_Position" FromRole="Position" ToRole="MilitaryRecords" />
         </EntityType>
         <EntityType Name="Profession">
           <Key>
@@ -1828,7 +1858,7 @@
             <PropertyRef Name="StockCategoryId" />
           </Key>
           <Property Name="StockCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StockCategory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StockCategory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MilitaryRecords" Relationship="Self.FK_MilitaryRecords_StockCategory" FromRole="StockCategory" ToRole="MilitaryRecords" />
         </EntityType>
         <EntityType Name="TypeWork">
@@ -2797,6 +2827,10 @@
             <End Role="EducationTitle" EntitySet="EducationTitle" />
             <End Role="Education" EntitySet="Education" />
           </AssociationSet>
+          <AssociationSet Name="FK_MilitaryRecords_Position" Association="vkr_Otdel_KadrovModel.FK_MilitaryRecords_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PlaceBirth">
           <Key>
@@ -2858,6 +2892,18 @@
             </Principal>
             <Dependent Role="Education">
               <PropertyRef Name="EducationTitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MilitaryRecords_Position">
+          <End Type="vkr_Otdel_KadrovModel.Position" Role="Position" Multiplicity="1" />
+          <End Type="vkr_Otdel_KadrovModel.MilitaryRecords" Role="MilitaryRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="IdPosition" />
+            </Principal>
+            <Dependent Role="MilitaryRecords">
+              <PropertyRef Name="IdPosition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3114,6 +3160,12 @@
           <EntitySetMapping Name="MilitaryRecords">
             <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.MilitaryRecords">
               <MappingFragment StoreEntitySet="MilitaryRecords">
+                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
+                <ScalarProperty Name="HRworker" ColumnName="HRworker" />
+                <ScalarProperty Name="MilitaryRecordsDate" ColumnName="MilitaryRecordsDate" />
+                <ScalarProperty Name="MarkDismissalMilitaryRegistry" ColumnName="MarkDismissalMilitaryRegistry" />
+                <ScalarProperty Name="SpecialMilitaryRecords" ColumnName="SpecialMilitaryRecords" />
+                <ScalarProperty Name="GeneralMilitaryRecords" ColumnName="GeneralMilitaryRecords" />
                 <ScalarProperty Name="MilitaryRecordsId" ColumnName="MilitaryRecordsId" />
                 <ScalarProperty Name="StockCategoryId" ColumnName="StockCategoryId" />
                 <ScalarProperty Name="MilitaryRankId" ColumnName="MilitaryRankId" />

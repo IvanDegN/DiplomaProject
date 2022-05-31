@@ -275,10 +275,10 @@
                                 <ColumnDefinition Width="73*"></ColumnDefinition>
                                 <ColumnDefinition Width="118*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Label Content="Фамилия:" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Margin="0,1" Width="64"></Label>
-                            <Label Content="Имя:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Margin="0,0,0,1" Width="37"></Label>
-                            <TextBox Grid.Column="1" Grid.Row="0" Height="20" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,3"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="1" Height="20" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,2,0,3"></TextBox>
+                            <Label Content="Категория запаса: " HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
+                            <Label Content="Воинское звание: " Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
+                            <ComboBox Name="CbStockCategory" Grid.Column="1" Grid.Row="0" Height="20" HorizontalAlignment="Stretch" VerticalAlignment="Center" ></ComboBox>
+                            <ComboBox Name="CbMilitaryRank" Grid.Column="1" Grid.Row="1" Height="20" HorizontalAlignment="Stretch" VerticalAlignment="Center" ></ComboBox>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
@@ -289,10 +289,10 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Отчество (при наличии):" HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
-                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"   ></TextBox>
-                            <Label Content="Дата рождения:" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"      ></Label>
-                            <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"    ></DatePicker>
+                            <Label Content="Состав (профиль): " HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
+                            <ComboBox Name="CbCompositionProfile" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"   ></ComboBox>
+                            <Label Content="Полное кодовое обозначение ВУС: " Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"      ></Label>
+                            <TextBox Name="TbFullCodeDesignationVUS" Height="20" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"    ></TextBox>
                         </Grid>
                         <Grid Grid.Row="2" >
                             <Grid.ColumnDefinitions>
@@ -303,10 +303,10 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Место рождения:" HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
-                            <ComboBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></ComboBox>
-                            <Label Content="Образование:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                            <Label Content="Категория годности к военной службе: " HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
+                            <ComboBox Name="CbEligibilityCategory" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></ComboBox>
+                            <Label Content="Наименование военного комиссариата: " Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                            <TextBox Name="TbMilitaryCommissariat" Height="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></TextBox>
                         </Grid>
                         <Grid  Grid.Row="3">
                             <Grid.ColumnDefinitions>
@@ -317,10 +317,10 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Наименование образовательной организации:" HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
-                            <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></ComboBox>
-                            <Label Content="Квалификация:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
-                            <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></ComboBox>
+                            <Label Content="Состоит на воинском учёте :" HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
+                            
+                            <Label Content="а) общем (номер команды, партии):" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" ></Label>
+                            <TextBox Name="TbGeneralMilitaryRecords" Height="20" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></TextBox>
                         </Grid>
                         <Grid Grid.Row="4">
                             <Grid.ColumnDefinitions>
@@ -331,10 +331,10 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Специальность:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <ComboBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
-                            <Label Grid.Row="1" Content="Серия диплома:" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="20"></TextBox>
+                            <Label Content="б) специальном: " HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                            <TextBox Name="TbSpecialMilitaryRecords" Height="20" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+                            <Label Grid.Row="1" Content="Ометка о снятии с воинского учета: " HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                            <TextBox Name="TbMarkDismissalMilitaryRegistry" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="20"></TextBox>
                         </Grid>
                         <Grid Grid.Row="5">
                             <Grid.ColumnDefinitions>
@@ -345,10 +345,10 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Номер диплома:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
-                            <Label Grid.Row="1" Content="Год окончания:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <DatePicker Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></DatePicker>
+                            <Label Content="Работник кадровой службы: " HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                            <TextBox Name="TbHRworker" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
+                            <Label Grid.Row="1" Content="Должность: " HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                            <ComboBox Name="CbPosition" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
                         </Grid>
                         <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
@@ -359,10 +359,8 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Профессия:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
-                            <Label Content="Семейное положение:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                            <Label Content="Дата: " HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                            <DatePicker Name="DpMilitaryRecordsDate" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></DatePicker>
                         </Grid>
                         <Grid Grid.Row="7" Grid.RowSpan="3" >
                             <Grid.ColumnDefinitions>
@@ -373,8 +371,6 @@
                                 <RowDefinition Height="14*"></RowDefinition>
                                 <RowDefinition Height="61*"></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Состав семьи:" />
-                            <DataGrid Grid.ColumnSpan="2" Grid.Row="1"  />
                         </Grid>
                         <Grid Grid.Row="10">
                             <Grid.ColumnDefinitions>
@@ -385,10 +381,6 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Серия паспорта:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <Label Content="Номер паспорта:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
-                            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="20"></TextBox>
                         </Grid>
                         <Grid Grid.Row="11">
                             <Grid.ColumnDefinitions>
@@ -399,9 +391,6 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="Дата выдачи:" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-                            <Label Content="Кем выдан:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1"></Label>
-                            <TextBox></TextBox>
                         </Grid>
                     </Grid>
                 </Grid>
