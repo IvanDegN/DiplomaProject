@@ -143,5 +143,55 @@ namespace DiplomaProject
 
 
         }
+
+        private void BtnEditHiringTransfersOtherJobs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditCertification_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditProfessionalDevelopment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditProfessionalDevelopmentDocumentation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditRewardDocument_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditVacation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditBenefitsFooting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditDirectionOrSpecialty_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditWorkExperience_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditFamilyComposition_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

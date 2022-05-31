@@ -396,25 +396,195 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Прием на работу и переводы на другую работу">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding HiringTransfersOtherJobs.Date}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Структурное подразделение" Binding="{Binding TitleDepartment}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Должность" Binding="{Binding TitlePosition}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Тарифная ставка" Binding="{Binding Salary}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Основание" Binding="{Binding HiringTransfersOtherJobs.Reason}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditHiringTransfersOtherJobs" Click="BtnEditHiringTransfersOtherJobs_Click"></Button>
+                </Grid>
+               
             </TabItem>
             <TabItem Header="Аттестация">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дата аттестации" Binding="{Binding Certification.Date}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Решение комиссии" Binding="{Binding Certification.Result}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер документа (протокола)" Binding="{Binding CertificationDocument.Number}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата документа (протокола)" Binding="{Binding CertificationDocument.Date}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Основание" Binding="{Binding Certification.Footing}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditCertification" Click="BtnEditCertification_Click"></Button>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Повышение квалификации">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Дата начала обучения" Binding="{Binding ProfessionalDevelopment.StartDate}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Дата окончания обучения" Binding="{Binding ProfessionalDevelopment.FinishDate}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Вид повышения квалификации" Binding="{Binding ProfessionalDevelopmentType}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Наименование образовательного учреждения" Binding="{Binding ProfessionalDevelopment.NameEducationalInstitution}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Наименование документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Title}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Серия документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Series}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Номер документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Number}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Дата получения документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Date}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Основание получения документа" Binding="{Binding ProfessionalDevelopment.Footing}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditProfessionalDevelopment" Click="BtnEditProfessionalDevelopment_Click"></Button>
+                </Grid>
+                
+                
             </TabItem>
             <TabItem Header="Профессиональная переподготовка">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дата начала переподготовки" Binding="{Binding ProfessionalRetraining.DateStart}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата окончания переподготовки" Binding="{Binding ProfessionalRetraining.DateFinish}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Специальность" Binding="{Binding TitlePosition}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Наименование документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Number}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата получения документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Date}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Основание получения документа" Binding="{Binding ProfessionalDevelopmentDocumentation.Footing}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditProfessionalDevelopmentDocumentation" Click="BtnEditProfessionalDevelopmentDocumentation_Click"></Button>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Награды">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Наименование награды (поощрения)" Binding="{Binding TitleReward}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Наименование документа" Binding="{Binding RewardDocument.Title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер документа" Binding="{Binding RewardDocument.Number}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата получения документа" Binding="{Binding RewardDocument.Date}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditRewardDocument" Click="BtnEditRewardDocument_Click" ></Button>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Отпуск">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Вид отпуска" Binding="{Binding VacationType}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Период работы с" Binding="{Binding WorkStart}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Период работы по" Binding="{Binding WorkFinish}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Количество календарных дней отпуска" Binding="{Binding CountVacationDays}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата начала отпуска" Binding="{Binding VacationStart}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата окончания отпуска" Binding="{Binding VacationFinish}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Основание" Binding="{Binding Vacation.Footing}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditVacation" Click="BtnEditVacation_Click"  ></Button>
+                </Grid>
+               
             </TabItem>
             <TabItem Header="Льготы">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Наименование льготы" Binding="{Binding Benefits.Title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер документа" Binding="{Binding BenefitDocument.Number}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата выдачи документа" Binding="{Binding BenefitDocument.ReleaseDate}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Основание для выдачи документа" Binding="{Binding BenefitsFooting}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditBenefitsFooting" Click="BtnEditBenefitsFooting_Click"></Button>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Дополнительные сведения и увольнение">
                 <Grid>
@@ -488,13 +658,112 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Образование">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Наименование образовательного учреждения" Binding="{Binding Education.EducationalInstitution}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Документ" Binding="{Binding DocumentAboutEducation.Title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Серия документа" Binding="{Binding DocumentAboutEducation.Series}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер документа" Binding="{Binding DocumentAboutEducation.Number}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год окончания" Binding="{Binding Education.FinishEducation}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Квалификация по документу" Binding="{Binding Qualification}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Направление или специальность по документу" Binding="{Binding DirectionOrSpecialty}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditDirectionOrSpecialty" Click="BtnEditDirectionOrSpecialty_Click"></Button>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Стаж работы">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.Column="1" Grid.RowSpan="1"  Margin="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Общий стаж работы"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дней" Binding="{Binding WorkExperienceTotal.Days}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Месяцев" Binding="{Binding WorkExperienceTotal.Months}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Лет" Binding="{Binding WorkExperienceTotal.Years}"></DataGridTextColumn>
+                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Grid.Column="1" Grid.Row="1" Grid.RowSpan="1"  Margin="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Непрерывный стаж работы"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дней" Binding="{Binding WorkExperienceContinuous.Days}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Месяцев" Binding="{Binding WorkExperienceContinuous.Months}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Лет" Binding="{Binding WorkExperienceContinuous.Years}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Grid.Column="1" Grid.Row="2" Grid.RowSpan="1"  Margin="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дающий право на надбавку за выслугу лет"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дней" Binding="{Binding WorkExperienceBonus.Days}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Месяцев" Binding="{Binding WorkExperienceBonus.Months}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Лет" Binding="{Binding WorkExperienceBonus.Years}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Стаж работы по состоянию на:" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        <DatePicker Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5"></DatePicker>
+                    </Grid>
+                    <Button Grid.Column="2" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditWorkExperience" Click="BtnEditWorkExperience_Click" ></Button>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Состав семьи">
-                <DataGrid></DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Степень родства (ближайшие родственники)" Binding="{Binding FamilyComposition.DegreeKinship}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding FamilyComposition.LastName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding FamilyComposition.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding FamilyComposition.MiddleName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год рождения" Binding="{Binding FamilyComposition.DateBirth}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditFamilyComposition" Click="BtnEditFamilyComposition_Click" ></Button>
+                </Grid>
+                
             </TabItem>
         </TabControl>
         <Grid Grid.Row="1">
