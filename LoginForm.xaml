@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomaProject"
         mc:Ignorable="d"
-        Title="Вход" Height="450" Width="300">
+        Title="Вход" Height="450" Width="300" WindowStartupLocation="CenterScreen" Icon="img/icon.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>

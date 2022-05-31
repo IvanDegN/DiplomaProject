@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomaProject"
         mc:Ignorable="d"
-        Title="Карточка сотрудника" Height="830" MinHeight="530" Width="1800" MinWidth="950" WindowStartupLocation="CenterScreen" FontFamily="Arial" Loaded="Window_Loaded">
+        Title="Карточка сотрудника" Height="830" MinHeight="530" Width="1800" MinWidth="950" WindowStartupLocation="CenterScreen" FontFamily="Arial" Loaded="Window_Loaded" Icon="img/icon.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"></ColumnDefinition>
@@ -504,7 +504,7 @@
                 <RowDefinition Height="40*"></RowDefinition>
                 <RowDefinition Height="40*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Image></Image>
+            <Image Source="img/worker.png"></Image>
             <Button Grid.Row="1" Height="30" Content="Изменить фото" FontSize="15" Name="BtnChangeImage" Click="BtnChangeImage_Click" Margin="5"></Button>
             
             <Button Grid.Row="3" Height="30" Content="Печать карточки сотрудника" FontSize="15" Name="BtnPrintEmployeeCard" Click="BtnPrintEmployeeCard_Click" Margin="5"></Button>

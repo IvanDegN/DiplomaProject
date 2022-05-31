@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomaProject"
         mc:Ignorable="d"
-        Title="Главное меню" Height="450" Width="800" FontFamily="Arial" WindowStartupLocation="CenterScreen">
+        Title="Главное меню" Height="450" Width="800" FontFamily="Arial" WindowStartupLocation="CenterScreen" Icon="img/icon.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
