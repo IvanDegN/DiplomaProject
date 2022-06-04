@@ -109,6 +109,17 @@ namespace DiplomaProject
             CbMarried.SelectedIndex = 0;
             CbProfession.SelectedIndex = 0;
 
+            CbStockCategory.ItemsSource = DB.db.StockCategory.ToList();
+            CbStockCategory.SelectedIndex = 0;
+            CbMilitaryRank.ItemsSource = DB.db.MilitaryRank.ToList();
+            CbMilitaryRank.SelectedIndex = 0;
+            CbCompositionProfile.ItemsSource = DB.db.CompositionProfile.ToList();
+            CbCompositionProfile.SelectedIndex = 0;
+            CbEligibilityCategory.ItemsSource = DB.db.EligibilityCategory.ToList();
+            CbEligibilityCategory.SelectedIndex = 0;
+            CbPosition.ItemsSource = DB.db.Position.ToList();
+            CbPosition.SelectedIndex = 0;
+
             //TbEmploymentContract.Text = PersonalCard.EmploymentContract.ToString();
             
             //TbLastName.Text = worker.LastName.ToString();
@@ -178,7 +189,9 @@ namespace DiplomaProject
 
         private void BtnEditCertification_Click(object sender, RoutedEventArgs e)
         {
-
+            ManageCertification manageCertification = new ManageCertification();
+            manageCertification.Show();
+            this.Close();
         }
 
         private void BtnEditProfessionalDevelopment_Click(object sender, RoutedEventArgs e)

@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomaProject"
         mc:Ignorable="d"
-        Title="ManageCertification" Height="450" Width="800">
+        Title="Аттестация" Height="450" Width="1000" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Name="GridCertification" Grid.Row="1" SelectionChanged="GridCertification_SelectionChanged"  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата аттестации" Binding="{Binding Date}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Решение комиссии" Binding="{Binding Result}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Основание" Binding="{Binding Footing}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid SelectionChanged="GridCertificationDocument_SelectionChanged" Name="GridCertificationDocument" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер документа" Binding="{Binding Number}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата выдачи документа" Binding="{Binding Date}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Rectangle Grid.ColumnSpan="3" Fill="#0000FF"></Rectangle>
+        <Rectangle Grid.ColumnSpan="3" Grid.Row="5" Fill="#0000FF"></Rectangle>
+        <TextBlock Text="Аттестация | Редактирование" FontSize="30" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnDel" Click="BtnDel_Click"  Content="Удалить"></Button>
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnAdd" Click="BtnAdd_Click"  Content="Добавить"></Button>
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnSave" Click="BtnSave_Click"  Content="Сохранить"></Button>
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnEdit" Click="BtnEdit_Click"  Content="Изменить"></Button>
+        </StackPanel>
+        <Button FontSize="15" Grid.Column="2" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Content="Назад" Name="BtnGoBack" Click="BtnGoBack_Click"></Button>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Решение комиссии:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbResultCommission" Grid.Column="1" Height="30" Margin="5"></TextBox>
+            <Label Grid.Column="2" Content="Основание:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbFooting" Grid.Column="3" Height="30" Margin="5"></TextBox>
+        </Grid>
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label  Content="Дата атттстации:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <DatePicker Name="DpDateCertification" Grid.Column="1" Height="30" Margin="5"></DatePicker>
+            <Label Grid.Column="2" Content="Номер документа:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox PreviewTextInput="TbDocumentNumber_PreviewTextInput" TextChanged="TbDocumentNumber_TextChanged" PreviewKeyDown="TbDocumentNumber_PreviewKeyDown"  Name="TbDocumentNumber" Grid.Column="3" Height="30" Margin="5"></TextBox>
+            <Label Grid.Column="4" Content="Дата выдачи:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <DatePicker Name="DpCertificationGetDate" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"></DatePicker>
+        </Grid>
     </Grid>
 </Window>

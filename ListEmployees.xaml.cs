@@ -22,6 +22,7 @@ namespace DiplomaProject
         public ListEmployees()
         {
             InitializeComponent();
+            EmployeesGrid.ItemsSource = DB.db.Worker.ToList();
             
             
 

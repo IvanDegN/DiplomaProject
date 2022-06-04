@@ -434,13 +434,13 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Name="GridCertification">
+                    <DataGrid Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Name="GridCertification" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Дата аттестации" Binding="{Binding Certification.Date}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Решение комиссии" Binding="{Binding Certification.Result}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата аттестации" Binding="{Binding Date}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Решение комиссии" Binding="{Binding Result}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Номер документа (протокола)" Binding="{Binding CertificationDocument.Number}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата документа (протокола)" Binding="{Binding CertificationDocument.Date}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Основание" Binding="{Binding Certification.Footing}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Основание" Binding="{Binding Footing}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditCertification" Click="BtnEditCertification_Click"></Button>
