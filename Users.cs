@@ -12,18 +12,21 @@ namespace DiplomaProject
     using System;
     using System.Collections.Generic;
     
-    public partial class HiringTransfersOtherJobs
+    public partial class Users
     {
-        public int IdHiringTransfersOtherJobs { get; set; }
-        public System.DateTime Date { get; set; }
-        public int IdDepartment { get; set; }
-        public int IdPosition { get; set; }
-        public decimal Salary { get; set; }
-        public string Reason { get; set; }
-        public string Signature { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.Worker = new HashSet<Worker>();
+        }
     
-        public virtual Position Position { get; set; }
-        public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
-        public virtual Department Department { get; set; }
+        public int UsersId { get; set; }
+        public string UsersLogin { get; set; }
+        public string UsersPassword { get; set; }
+        public int RolesId { get; set; }
+    
+        public virtual Roles Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Worker> Worker { get; set; }
     }
 }

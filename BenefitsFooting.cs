@@ -21,7 +21,7 @@ namespace DiplomaProject
         }
     
         public int BenefitsFootingId { get; set; }
-        public string BenefitsFooting1 { get; set; }
+        public string BenefitsFootingTitle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Benefits> Benefits { get; set; }

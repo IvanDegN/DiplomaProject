@@ -42,6 +42,7 @@ namespace DiplomaProject
         public int IdSex { get; set; }
         public int IdMilitaryRegistration { get; set; }
         public string PassportGet { get; set; }
+        public int UsersId { get; set; }
     
         public virtual Citizenship Citizenship { get; set; }
         public virtual Education Education { get; set; }
@@ -53,5 +54,6 @@ namespace DiplomaProject
         public virtual WorkExperience WorkExperience { get; set; }
         public virtual PlaceBirth PlaceBirth { get; set; }
         public virtual MaritalStatus MaritalStatus { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

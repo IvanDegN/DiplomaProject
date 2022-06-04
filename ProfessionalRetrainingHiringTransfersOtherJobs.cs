@@ -14,10 +14,18 @@ namespace DiplomaProject
     
     public partial class ProfessionalRetrainingHiringTransfersOtherJobs
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProfessionalRetrainingHiringTransfersOtherJobs()
+        {
+            this.ProfessionalRetraining1 = new HashSet<ProfessionalRetraining>();
+        }
+    
         public int IdPosition { get; set; }
     
         public virtual HiringTransfersOtherJobs HiringTransfersOtherJobs { get; set; }
         public virtual Position Position { get; set; }
         public virtual ProfessionalRetraining ProfessionalRetraining { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProfessionalRetraining> ProfessionalRetraining1 { get; set; }
     }
 }

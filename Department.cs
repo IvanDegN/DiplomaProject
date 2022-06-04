@@ -22,7 +22,6 @@ namespace DiplomaProject
     
         public int IdDepartment { get; set; }
         public string TitleDepartment { get; set; }
-        public int DepartmentCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HiringTransfersOtherJobs> HiringTransfersOtherJobs { get; set; }

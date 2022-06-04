@@ -408,7 +408,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4" Name="GridHiringTransfersOtherJobs">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Дата" Binding="{Binding HiringTransfersOtherJobs.Date}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Структурное подразделение" Binding="{Binding TitleDepartment}"></DataGridTextColumn>
@@ -434,7 +434,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                    <DataGrid Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Name="GridCertification">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Дата аттестации" Binding="{Binding Certification.Date}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Решение комиссии" Binding="{Binding Certification.Result}"></DataGridTextColumn>
@@ -460,8 +460,8 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Grid.RowSpan="4">
-                        <DataGrid>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Grid.RowSpan="4" >
+                        <DataGrid Name="GridProfessionalDevelopment">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Дата начала обучения" Binding="{Binding ProfessionalDevelopment.StartDate}"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Дата окончания обучения" Binding="{Binding ProfessionalDevelopment.FinishDate}"></DataGridTextColumn>
@@ -493,7 +493,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4" Name="GridProfessionalRetraining">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Дата начала переподготовки" Binding="{Binding ProfessionalRetraining.DateStart}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата окончания переподготовки" Binding="{Binding ProfessionalRetraining.DateFinish}"></DataGridTextColumn>
@@ -521,7 +521,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4" Name="GridReward">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Наименование награды (поощрения)" Binding="{Binding TitleReward}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Наименование документа" Binding="{Binding RewardDocument.Title}"></DataGridTextColumn>
@@ -546,7 +546,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4">
+                    <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="4" Name="GridVacation">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Вид отпуска" Binding="{Binding VacationType}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Период работы с" Binding="{Binding WorkStart}"></DataGridTextColumn>
@@ -574,15 +574,15 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2">
+                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2" Name="GridBenefits" AutoGenerateColumns="False" CanUserAddRows="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Наименование льготы" Binding="{Binding Benefits.Title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Наименование льготы" Binding="{Binding Title}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Номер документа" Binding="{Binding BenefitDocument.Number}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата выдачи документа" Binding="{Binding BenefitDocument.ReleaseDate}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Основание для выдачи документа" Binding="{Binding BenefitsFooting}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Основание для выдачи документа" Binding="{Binding BenefitsFooting.BenefitsFootingTitle}" Width="1*"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditBenefitsFooting" Click="BtnEditBenefitsFooting_Click"></Button>
+                    <Button Grid.Column="1" Grid.Row="5" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Изменить" FontSize="15" Name="BtnEditBenefits" Click="BtnEditBenefits_Click"></Button>
                 </Grid>
                 
             </TabItem>
@@ -670,7 +670,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2">
+                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2" Name="GridEducation">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Наименование образовательного учреждения" Binding="{Binding Education.EducationalInstitution}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Документ" Binding="{Binding DocumentAboutEducation.Title}"></DataGridTextColumn>
@@ -698,7 +698,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.Column="1" Grid.RowSpan="1"  Margin="5">
+                    <DataGrid Grid.Column="1" Grid.RowSpan="1"  Margin="5" Name="GridWorkExperienceTotal">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Общий стаж работы"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дней" Binding="{Binding WorkExperienceTotal.Days}"></DataGridTextColumn>
@@ -707,7 +707,7 @@
                             
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid Grid.Column="1" Grid.Row="1" Grid.RowSpan="1"  Margin="5">
+                    <DataGrid Grid.Column="1" Grid.Row="1" Grid.RowSpan="1"  Margin="5" Name="GridWorkExperienceContinuous">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Непрерывный стаж работы"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дней" Binding="{Binding WorkExperienceContinuous.Days}"></DataGridTextColumn>
@@ -715,7 +715,7 @@
                             <DataGridTextColumn Header="Лет" Binding="{Binding WorkExperienceContinuous.Years}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid Grid.Column="1" Grid.Row="2" Grid.RowSpan="1"  Margin="5">
+                    <DataGrid Grid.Column="1" Grid.Row="2" Grid.RowSpan="1"  Margin="5" Name="GridWorkExperienceBonus">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Дающий право на надбавку за выслугу лет"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дней" Binding="{Binding WorkExperienceBonus.Days}"></DataGridTextColumn>
@@ -752,7 +752,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2">
+                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2" Name="GridFamilyComposition">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Степень родства (ближайшие родственники)" Binding="{Binding FamilyComposition.DegreeKinship}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Фамилия" Binding="{Binding FamilyComposition.LastName}"></DataGridTextColumn>

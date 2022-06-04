@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace DiplomaProject
 {
     /// <summary>
-    /// Логика взаимодействия для LoginForm.xaml
+    /// Логика взаимодействия для ManageWorkExperienceContinuous.xaml
     /// </summary>
-    public partial class LoginForm : Window
+    public partial class ManageWorkExperienceContinuous : Window
     {
-        public LoginForm()
+        public ManageWorkExperienceContinuous()
         {
             InitializeComponent();
-        }
-
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
         }
     }
 }

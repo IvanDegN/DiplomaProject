@@ -26,15 +26,11 @@ namespace DiplomaProject
         }
     
         public virtual DbSet<AdmissionAndDismissal> AdmissionAndDismissal { get; set; }
-        public virtual DbSet<BenefitDocument> BenefitDocument { get; set; }
-        public virtual DbSet<Benefits> Benefits { get; set; }
-        public virtual DbSet<BenefitsFooting> BenefitsFooting { get; set; }
         public virtual DbSet<Certification> Certification { get; set; }
         public virtual DbSet<CertificationDocument> CertificationDocument { get; set; }
         public virtual DbSet<Citizenship> Citizenship { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<CompositionProfile> CompositionProfile { get; set; }
-        public virtual DbSet<Department> Department { get; set; }
         public virtual DbSet<DirectionOrSpecialty> DirectionOrSpecialty { get; set; }
         public virtual DbSet<Dismissal> Dismissal { get; set; }
         public virtual DbSet<DismissalReason> DismissalReason { get; set; }
@@ -76,5 +72,11 @@ namespace DiplomaProject
         public virtual DbSet<PlaceBirth> PlaceBirth { get; set; }
         public virtual DbSet<MaritalStatus> MaritalStatus { get; set; }
         public virtual DbSet<EducationTitle> EducationTitle { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<BenefitDocument> BenefitDocument { get; set; }
+        public virtual DbSet<Benefits> Benefits { get; set; }
+        public virtual DbSet<BenefitsFooting> BenefitsFooting { get; set; }
     }
 }

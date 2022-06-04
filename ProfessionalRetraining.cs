@@ -31,5 +31,6 @@ namespace DiplomaProject
         public virtual ICollection<PersonalCard> PersonalCard { get; set; }
         public virtual ProfessionalRetrainingDocument ProfessionalRetrainingDocument { get; set; }
         public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
+        public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs1 { get; set; }
     }
 }
