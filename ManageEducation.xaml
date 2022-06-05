@@ -5,8 +5,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomaProject"
         mc:Ignorable="d"
-        Title="ManageEducation" Height="450" Width="800">
+        Title="Образование" Height="450" Width="1000" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.ColumnSpan="9" Fill="#0000FF"></Rectangle>
+        <Rectangle Grid.ColumnSpan="9" Grid.Row="7" Fill="#0000FF"></Rectangle>
+        <TextBlock Text="Редактировать образование" FontSize="30" Grid.ColumnSpan="9" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnDel" Click="BtnDel_Click"  Content="Удалить"></Button>
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnAdd" Click="BtnAdd_Click"  Content="Добавить"></Button>
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnSave" Click="BtnSave_Click"  Content="Сохранить"></Button>
+            <Button FontSize="15" Width="100" Height="30" Margin="5" Name="BtnEdit" Click="BtnEdit_Click"  Content="Изменить"></Button>
+        </StackPanel>
+        <Grid Grid.Row="3" Grid.ColumnSpan="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Серия докумунта:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox PreviewTextInput="TbSeriesDoc_PreviewTextInput" Name="TbSeriesDoc" Grid.Column="1" Height="30" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+            <Label Grid.Column="2" Content="Номер документа:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="TbNumberDoc" Grid.Column="3" Height="30" Margin="5"></TextBox>
+            <Label Grid.Column="4" Content="Год окончания:" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            <DatePicker Name="DpFinishEducation" Grid.Column="5"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" Height="30"></DatePicker>
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Код по ОКИН:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox Grid.Column="1" Height="30" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="TbEducationTitleCode"></TextBox>
+        </Grid>
+        <Grid Grid.Row="4" Grid.ColumnSpan="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Наименование уч. З:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbEducationalInstitution" Grid.Column="1" Height="30" Margin="5"></TextBox>
+            <Label Grid.Column="2" Content="Наименование док:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbTitleDoc" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Grid.Column="3" Height="30" Margin="5"></TextBox>
+            <Label Grid.Column="4" Content="Код по ОКСО:" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            <TextBox Name="TbEducationCode" Grid.Column="5" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5"></TextBox>
+        </Grid>
+        <Grid Grid.Row="5" Grid.ColumnSpan="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Квалификация по документу:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <ComboBox Name="CbQualification" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5" Height="30" VerticalAlignment="Center"></ComboBox>
+            <Label Content="Направление или спец.:" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <ComboBox Name="CbDirectionOrSpecialty" Height="30" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="3"></ComboBox>
+            <Label Content="Образование:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4"></Label>
+            <ComboBox Height="30" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="5" Name="CbEducationTitle"></ComboBox>
+        </Grid>
+        <Button FontSize="15" Grid.Column="8" Grid.Row="7" Height="30" Width="100" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Content="Назад" Name="BtnGoBack" Click="BtnGoBack_Click"></Button>
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="5" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+            <DataGrid Grid.Row="1" Name="GridEducation" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование образовательного учреждения" Binding="{Binding EducationalInstitution}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Год окончания" Binding="{Binding FinishEducation}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Код по ОКСО" Binding="{Binding EducationCode}"></DataGridTextColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4">
+            <DataGrid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Name="GridDocumentAboutEducation" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование документа" Binding="{Binding Title}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Серия документа" Binding="{Binding Series}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Номер документа" Binding="{Binding Number}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
     </Grid>
 </Window>

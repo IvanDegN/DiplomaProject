@@ -22,8 +22,8 @@ namespace DiplomaProject
         public string Reason { get; set; }
         public string Signature { get; set; }
     
+        public virtual Department Department { get; set; }
         public virtual Position Position { get; set; }
         public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
-        public virtual Department Department { get; set; }
     }
 }

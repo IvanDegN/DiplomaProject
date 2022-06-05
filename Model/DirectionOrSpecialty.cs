@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DiplomaProject
 {
-    partial class EducationTitle
+    partial class DirectionOrSpecialty
     {
         public override string ToString()
         {
-            return Title.ToString();
+            return DirectionOrSpecialty1.ToString();
         }
     }
 }

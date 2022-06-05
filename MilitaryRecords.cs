@@ -38,9 +38,9 @@ namespace DiplomaProject
         public virtual EligibilityCategory EligibilityCategory { get; set; }
         public virtual MilitaryCommissariat MilitaryCommissariat { get; set; }
         public virtual MilitaryRank MilitaryRank { get; set; }
+        public virtual Position Position { get; set; }
         public virtual StockCategory StockCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonalCard> PersonalCard { get; set; }
-        public virtual Position Position { get; set; }
     }
 }

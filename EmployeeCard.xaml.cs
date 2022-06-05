@@ -120,6 +120,8 @@ namespace DiplomaProject
             CbPosition.ItemsSource = DB.db.Position.ToList();
             CbPosition.SelectedIndex = 0;
 
+            
+
             //TbEmploymentContract.Text = PersonalCard.EmploymentContract.ToString();
             
             //TbLastName.Text = worker.LastName.ToString();
@@ -218,7 +220,10 @@ namespace DiplomaProject
 
         private void BtnEditDirectionOrSpecialty_Click(object sender, RoutedEventArgs e)
         {
-
+            ManageEducation manageEducation = new ManageEducation();
+            manageEducation.Show();
+            this.Close();
+            
         }
 
         private void BtnEditWorkExperience_Click(object sender, RoutedEventArgs e)

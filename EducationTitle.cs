@@ -21,8 +21,7 @@ namespace DiplomaProject
         }
     
         public int EducationTitleId { get; set; }
-        public string EducationTitle1 { get; set; }
-        public int EducationTitleCode { get; set; }
+        public string Title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Education> Education { get; set; }

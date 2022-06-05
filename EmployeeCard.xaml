@@ -670,13 +670,13 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2" Name="GridEducation">
+                    <DataGrid Grid.RowSpan="4" Grid.ColumnSpan="2" Name="GridEducation" AutoGenerateColumns="False" CanUserAddRows="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Наименование образовательного учреждения" Binding="{Binding Education.EducationalInstitution}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Наименование образовательного учреждения" Binding="{Binding EducationalInstitution}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Документ" Binding="{Binding DocumentAboutEducation.Title}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Серия документа" Binding="{Binding DocumentAboutEducation.Series}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Номер документа" Binding="{Binding DocumentAboutEducation.Number}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Год окончания" Binding="{Binding Education.FinishEducation}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год окончания" Binding="{Binding FinishEducation}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Квалификация по документу" Binding="{Binding Qualification}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Направление или специальность по документу" Binding="{Binding DirectionOrSpecialty}"></DataGridTextColumn>
                         </DataGrid.Columns>

@@ -31,9 +31,9 @@ namespace DiplomaProject
     
         public virtual DirectionOrSpecialty DirectionOrSpecialty { get; set; }
         public virtual DocumentAboutEducation DocumentAboutEducation { get; set; }
+        public virtual EducationTitle EducationTitle { get; set; }
         public virtual Qualification Qualification { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Worker> Worker { get; set; }
-        public virtual EducationTitle EducationTitle1 { get; set; }
     }
 }

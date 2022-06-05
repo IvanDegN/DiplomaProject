@@ -13,10 +13,10 @@ namespace DiplomaProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class vkr_Otdel_KadrovEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public vkr_Otdel_KadrovEntities()
-            : base("name=vkr_Otdel_KadrovEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -26,16 +26,21 @@ namespace DiplomaProject
         }
     
         public virtual DbSet<AdmissionAndDismissal> AdmissionAndDismissal { get; set; }
+        public virtual DbSet<BenefitDocument> BenefitDocument { get; set; }
+        public virtual DbSet<Benefits> Benefits { get; set; }
+        public virtual DbSet<BenefitsFooting> BenefitsFooting { get; set; }
         public virtual DbSet<Certification> Certification { get; set; }
         public virtual DbSet<CertificationDocument> CertificationDocument { get; set; }
         public virtual DbSet<Citizenship> Citizenship { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<CompositionProfile> CompositionProfile { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
         public virtual DbSet<DirectionOrSpecialty> DirectionOrSpecialty { get; set; }
         public virtual DbSet<Dismissal> Dismissal { get; set; }
         public virtual DbSet<DismissalReason> DismissalReason { get; set; }
         public virtual DbSet<DocumentAboutEducation> DocumentAboutEducation { get; set; }
         public virtual DbSet<Education> Education { get; set; }
+        public virtual DbSet<EducationTitle> EducationTitle { get; set; }
         public virtual DbSet<EligibilityCategory> EligibilityCategory { get; set; }
         public virtual DbSet<EmploymentContract> EmploymentContract { get; set; }
         public virtual DbSet<FamilyComposition> FamilyComposition { get; set; }
@@ -44,10 +49,12 @@ namespace DiplomaProject
         public virtual DbSet<KindWork> KindWork { get; set; }
         public virtual DbSet<LanguageKnowledge> LanguageKnowledge { get; set; }
         public virtual DbSet<LanguageKnowledgeType> LanguageKnowledgeType { get; set; }
+        public virtual DbSet<MaritalStatus> MaritalStatus { get; set; }
         public virtual DbSet<MilitaryCommissariat> MilitaryCommissariat { get; set; }
         public virtual DbSet<MilitaryRank> MilitaryRank { get; set; }
         public virtual DbSet<MilitaryRecords> MilitaryRecords { get; set; }
         public virtual DbSet<PersonalCard> PersonalCard { get; set; }
+        public virtual DbSet<PlaceBirth> PlaceBirth { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Profession> Profession { get; set; }
         public virtual DbSet<ProfessionalDevelopment> ProfessionalDevelopment { get; set; }
@@ -59,9 +66,11 @@ namespace DiplomaProject
         public virtual DbSet<Qualification> Qualification { get; set; }
         public virtual DbSet<RewardDocument> RewardDocument { get; set; }
         public virtual DbSet<Rewards> Rewards { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Sex> Sex { get; set; }
         public virtual DbSet<StockCategory> StockCategory { get; set; }
         public virtual DbSet<TypeWork> TypeWork { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vacation> Vacation { get; set; }
         public virtual DbSet<VacationType> VacationType { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
@@ -69,14 +78,5 @@ namespace DiplomaProject
         public virtual DbSet<WorkExperienceBonus> WorkExperienceBonus { get; set; }
         public virtual DbSet<WorkExperienceContinuous> WorkExperienceContinuous { get; set; }
         public virtual DbSet<WorkExperienceTotal> WorkExperienceTotal { get; set; }
-        public virtual DbSet<PlaceBirth> PlaceBirth { get; set; }
-        public virtual DbSet<MaritalStatus> MaritalStatus { get; set; }
-        public virtual DbSet<EducationTitle> EducationTitle { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Department> Department { get; set; }
-        public virtual DbSet<BenefitDocument> BenefitDocument { get; set; }
-        public virtual DbSet<Benefits> Benefits { get; set; }
-        public virtual DbSet<BenefitsFooting> BenefitsFooting { get; set; }
     }
 }
