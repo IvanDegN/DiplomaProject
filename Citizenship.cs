@@ -17,14 +17,13 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Citizenship()
         {
-            this.Worker = new HashSet<Worker>();
+            this.WorkCard = new HashSet<WorkCard>();
         }
     
         public int IdCitizenship { get; set; }
         public string Citizenship1 { get; set; }
-        public int CitizenshipCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Worker> Worker { get; set; }
+        public virtual ICollection<WorkCard> WorkCard { get; set; }
     }
 }

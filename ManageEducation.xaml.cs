@@ -194,11 +194,7 @@ namespace DiplomaProject
                 CbDirectionOrSpecialty.SelectedIndex = 0;
             }
 
-            if (CbEducationTitle.SelectedItem == null)
-            {
-                MessageBox.Show("Необходимо выбрать образование", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
-                CbEducationTitle.SelectedIndex = 0;
-            }
+            
 
             if(String.IsNullOrEmpty(TbTitleDoc.Text) || String.IsNullOrWhiteSpace(TbTitleDoc.Text))
             {
@@ -218,10 +214,10 @@ namespace DiplomaProject
             {
                 EducationalInstitution = TbEducationalInstitution.Text,
                 FinishEducation = (DateTime)DpFinishEducation.SelectedDate,
-                EducationCode = int.Parse(TbEducationCode.Text),
+                EducationCode = TbEducationCode.Text,
                 Qualification = CbQualification.SelectedItem as Qualification,
                 DirectionOrSpecialty = CbDirectionOrSpecialty.SelectedItem as DirectionOrSpecialty,
-               EducationTitle = CbEducationTitle.SelectedItem as EducationTitle
+               
                  
             };
             DocumentAboutEducation documentAboutEducation = new DocumentAboutEducation();
@@ -237,9 +233,7 @@ namespace DiplomaProject
             DB.db.DocumentAboutEducation.Add(documentAboutEducation);
             ListDocumentAboutEducations.Add(documentAboutEducation);
 
-            educationTitle.Title = CbEducationTitle.SelectedItem.ToString();
-            DB.db.EducationTitle.Add(educationTitle);
-            ListEductionTitle.Add(educationTitle);
+            
         }
 
         
@@ -373,8 +367,7 @@ namespace DiplomaProject
             LoadGrids();
             CbDirectionOrSpecialty.ItemsSource = DB.db.DirectionOrSpecialty.ToList();
             CbDirectionOrSpecialty.SelectedIndex = 0;
-            CbEducationTitle.ItemsSource = DB.db.EducationTitle.ToList();
-            CbEducationTitle.SelectedIndex = 0;
+            
             CbQualification.ItemsSource = DB.db.Qualification.ToList();
             CbQualification.SelectedIndex = 0;
 

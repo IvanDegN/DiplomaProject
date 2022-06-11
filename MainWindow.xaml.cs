@@ -42,5 +42,12 @@ namespace DiplomaProject
                 Application.Current.Shutdown();
             }
         }
+
+        private void BtnAddNewEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewEmployee addNewEmployee = new AddNewEmployee();
+            addNewEmployee.Show();
+            this.Close();
+        }
     }
 }

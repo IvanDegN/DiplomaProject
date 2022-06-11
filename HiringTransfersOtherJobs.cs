@@ -14,6 +14,12 @@ namespace DiplomaProject
     
     public partial class HiringTransfersOtherJobs
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HiringTransfersOtherJobs()
+        {
+            this.HiringRetraining = new HashSet<HiringRetraining>();
+        }
+    
         public int IdHiringTransfersOtherJobs { get; set; }
         public System.DateTime Date { get; set; }
         public int IdDepartment { get; set; }
@@ -23,7 +29,7 @@ namespace DiplomaProject
         public string Signature { get; set; }
     
         public virtual Department Department { get; set; }
-        public virtual Position Position { get; set; }
-        public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HiringRetraining> HiringRetraining { get; set; }
     }
 }

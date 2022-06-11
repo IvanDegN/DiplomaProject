@@ -14,19 +14,9 @@ namespace DiplomaProject
     
     public partial class LanguageKnowledge
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LanguageKnowledge()
-        {
-            this.Worker = new HashSet<Worker>();
-        }
-    
         public int IdLanguageKnowledge { get; set; }
         public string LanguageKnowledgeTitle { get; set; }
         public int IdLanguageKnowledgeType { get; set; }
         public int LanguageKnowledgeCode { get; set; }
-    
-        public virtual LanguageKnowledgeType LanguageKnowledgeType { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Worker> Worker { get; set; }
     }
 }

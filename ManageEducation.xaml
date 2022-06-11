@@ -93,8 +93,6 @@
             <ComboBox Name="CbQualification" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5" Height="30" VerticalAlignment="Center"></ComboBox>
             <Label Content="Направление или спец.:" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
             <ComboBox Name="CbDirectionOrSpecialty" Height="30" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="3"></ComboBox>
-            <Label Content="Образование:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4"></Label>
-            <ComboBox Height="30" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="5" Name="CbEducationTitle"></ComboBox>
         </Grid>
         <Button FontSize="15" Grid.Column="8" Grid.Row="7" Height="30" Width="100" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Content="Назад" Name="BtnGoBack" Click="BtnGoBack_Click"></Button>
         <ScrollViewer Grid.Row="1" Grid.ColumnSpan="5" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">

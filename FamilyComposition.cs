@@ -17,17 +17,13 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FamilyComposition()
         {
-            this.Worker = new HashSet<Worker>();
+            this.WorkCard = new HashSet<WorkCard>();
         }
     
         public int IdFamilyComposition { get; set; }
         public string DegreeKinship { get; set; }
-        public string LastName { get; set; }
-        public string Name { get; set; }
-        public string MiddleName { get; set; }
-        public System.DateTime DateBirth { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Worker> Worker { get; set; }
+        public virtual ICollection<WorkCard> WorkCard { get; set; }
     }
 }

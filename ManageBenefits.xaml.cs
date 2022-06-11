@@ -210,7 +210,7 @@ namespace DiplomaProject
                         ListBenefits.Remove(benefits);
                         DB.db.Benefits.Remove(benefits);
                         DB.db.SaveChanges();
-                        RefreshBenefits();   
+                        //RefreshBenefits();   
                     }
                 }
                 

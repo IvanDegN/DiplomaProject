@@ -10,7 +10,7 @@ namespace DiplomaProject
     {
         public override string ToString()
         {
-            return BaseProfession.ToString();
+            return Profession1.ToString();
         }
     }
 }

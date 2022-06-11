@@ -17,7 +17,7 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Position()
         {
-            this.HiringTransfersOtherJobs = new HashSet<HiringTransfersOtherJobs>();
+            this.HiringRetraining = new HashSet<HiringRetraining>();
             this.MilitaryRecords = new HashSet<MilitaryRecords>();
         }
     
@@ -25,9 +25,8 @@ namespace DiplomaProject
         public string TitlePosition { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HiringTransfersOtherJobs> HiringTransfersOtherJobs { get; set; }
+        public virtual ICollection<HiringRetraining> HiringRetraining { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MilitaryRecords> MilitaryRecords { get; set; }
-        public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
     }
 }

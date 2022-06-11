@@ -17,14 +17,13 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LanguageKnowledgeType()
         {
-            this.LanguageKnowledge = new HashSet<LanguageKnowledge>();
+            this.WorkCard = new HashSet<WorkCard>();
         }
     
         public int IdLanguageKnowledgeType { get; set; }
         public string LanguageKnowledgeType1 { get; set; }
-        public int LanguageKnowledgeTypeCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LanguageKnowledge> LanguageKnowledge { get; set; }
+        public virtual ICollection<WorkCard> WorkCard { get; set; }
     }
 }

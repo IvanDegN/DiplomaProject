@@ -12,11 +12,15 @@ namespace DiplomaProject
     using System;
     using System.Collections.Generic;
     
-    public partial class DocumentAboutEducation
+    public partial class HiringRetraining
     {
-        public int IdDocumentAboutEducation { get; set; }
-        public string Title { get; set; }
-        public string Series { get; set; }
-        public int Number { get; set; }
+        public int HiringRetrainingId { get; set; }
+        public int IdHiringTransfersOtherJobs { get; set; }
+        public int IdProfessionalRetraining { get; set; }
+        public int IdPosition { get; set; }
+    
+        public virtual HiringTransfersOtherJobs HiringTransfersOtherJobs { get; set; }
+        public virtual Position Position { get; set; }
+        public virtual ProfessionalRetraining ProfessionalRetraining { get; set; }
     }
 }

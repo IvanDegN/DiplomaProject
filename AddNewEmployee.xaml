@@ -1,0 +1,319 @@
+﻿<Window x:Class="DiplomaProject.AddNewEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomaProject"
+        mc:Ignorable="d"
+        Title="Добавить нового сотрудника" Height="800" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="/img/icon.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Трудовой договор" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+            <Label Content="Номер" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            <Label Content="Дата" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+            <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="5" Name="TbEmploymentContractNumber"></TextBox>
+            <DatePicker Grid.Column="1" VerticalAlignment="Bottom" Margin="0" Name="DpEmploymentContractNumber"></DatePicker>
+            <Label Content="Фамилия" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+            <Label Content="Имя" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            <Label Content="Отчество" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="5" Name="TbWorkerLastName"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5" Name="TbWorkerName"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="5" Name="TbWorkerMiddleName"></TextBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Дата рожднения" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+            <DatePicker Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Name="DpWorkerBirthDate"></DatePicker>
+            <Label Content="Дата рождения код" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="5" Name="TbWorkerBirthDateCode"></TextBox>
+            <Label Content="Место рождения" VerticalAlignment="Bottom"></Label>
+            <ComboBox Grid.Column="1" VerticalAlignment="Bottom" Name="CbPlaceBirth"></ComboBox>
+            <Label Content="Место рождения ОКАТО" Grid.Row="1"></Label>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="5" Name="TbPlaceBirthCode"></TextBox>
+            <Label Content="Гражданство" Grid.Row="1" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Name="CbCitizenship"></ComboBox>
+            <Label Content="Гражданство ОКИН" Grid.Row="1" VerticalAlignment="Bottom"></Label>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Name="TbCitizenshipCode"></TextBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Знание иностранного языка"></Label>
+            <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Margin="5" Name="CbLanguageKnowledgeTitle"></ComboBox>
+            <Label Content="Степень знания языка" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Name="CbLanguageKnowledgeType"></ComboBox>
+            <Label Content="Язык ОКИН" VerticalAlignment="Bottom"></Label>
+            <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Name="TbLanguageKnowledgeCode"></TextBox>
+            <Label Grid.Row="1" VerticalAlignment="Top" Content="Образование"></Label>
+            <ComboBox Name="CbEducationTitle" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="5"></ComboBox>
+            <Label Grid.Row="1" VerticalAlignment="Center" Content="Образование ОКИН"></Label>
+            <TextBox Name="TbEducationCode" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+            <Label Content="Образовательное уч." Grid.Row="1" VerticalAlignment="Bottom"></Label>
+            <TextBox Name="TbEducationalInstitution" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"></TextBox>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Наименование документа"></Label>
+            <TextBox Name="TbDocumentAboutEducationTitle" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Margin="5"></TextBox>
+            <Label Content="Серия документа" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbDocumentAboutEducationSeries" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+            <Label Content="Номер документа" Grid.Row="0" VerticalAlignment="Bottom"></Label>
+            <TextBox Name="TbDocumentAboutEducationNumber" Grid.Column="1" VerticalAlignment="Bottom" Margin="5"></TextBox>
+            <Label Grid.Row="1" VerticalAlignment="Top" Content="Год окончания"></Label>
+            <DatePicker Name="DpFinishEducation" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"></DatePicker>
+            <Label Grid.Row="1" VerticalAlignment="Center" Content="Квалификация"></Label>
+            <ComboBox Name="CbQualification" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></ComboBox>
+            <Label Grid.Row="1" VerticalAlignment="Bottom" Content="Направление"></Label>
+            <ComboBox Name="CbDirectionOrSpecialty" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Направление ОКСО" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <TextBox Name="TbDirectionOrSpecialtyCode" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Margin="5"></TextBox>
+            <Label Content="Профессия" VerticalAlignment="Center" HorizontalAlignment="Left"></Label>
+            <ComboBox Name="CbBaseProfession" Grid.Column="1" VerticalAlignment="Center"></ComboBox>
+            <Label Content="Профессия код ОКПДТР" VerticalAlignment="Bottom" HorizontalAlignment="Left"></Label>
+            <TextBox Name="TbBaseProfessionCode" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Margin="5"></TextBox>
+            <Label Content="Стаж работы с" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <DatePicker Name="DpWorkExperienceDate" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"></DatePicker>
+            <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Общий стаж дней"></Label>
+            <TextBox Name="TbWorkExperienceTotalDays" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1"></TextBox>
+            <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Общий стаж месяцев"></Label>
+            <TextBox Name="TbWorkExperienceTotalMonth" Grid.Column="1" VerticalAlignment="Bottom" Grid.Row="1"></TextBox>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Общий стаж лет">
+            </Label>
+            <TextBox Name="TbWorkExperienceTotalYears" Grid.Column="1" VerticalAlignment="Top" Grid.Row="0" Margin="5"></TextBox>
+            <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Непрерывный стаж дней"></Label>
+            <TextBox Name="TbWorkExperienceContinuousDays" Grid.Column="1" VerticalAlignment="Center" Grid.Row="0"></TextBox>
+            <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Непрерывный стаж месяцев"></Label>
+            <TextBox Name="TbWorkExperienceContinuousMonth" Grid.Column="1" VerticalAlignment="Bottom" Grid.Row="0"></TextBox>
+            <Label Grid.Row="1" Content="Надбавка стаж дней" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+            <TextBox Name="TbWorkExperienceBonusDays" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="5"></TextBox>
+            <Label Grid.Row="1" Content="Надбавка стаж месяцев" VerticalAlignment="Center" HorizontalAlignment="Left"></Label>
+            <TextBox Name="TbWorkExperienceBonusMonths" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="5"></TextBox>
+            <Label Grid.Row="1" Content="Надбавка стаж лет" VerticalAlignment="Bottom" HorizontalAlignment="Left"></Label>
+            <TextBox Name="TbWorkExperienceBonusYears" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="5"></TextBox>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Состояние в браке"></Label>
+            <ComboBox Name="CbMaritalStatus" Grid.Column="1" VerticalAlignment="Top"></ComboBox>
+            <Label Content="Состояние в браке ОКИН" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbMaritalStatusCode" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+            <Label Content="Состав семьи" VerticalAlignment="Bottom" ></Label>
+            <Label Grid.Row="1" Content="Степень родства"></Label>
+            <ComboBox Name="CbDegreeKinship" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"></ComboBox>
+            <Label Grid.Row="1" VerticalAlignment="Center" Content="Фамилия"></Label>
+            <TextBox Name="TbFamilyCompositionLastName" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"></TextBox>
+            <Label Content="Имя" Grid.Row="1" VerticalAlignment="Bottom"></Label>
+            <TextBox Name="TbFamilyCompositionName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"></TextBox>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Отчество"></Label>
+            <TextBox Name="TbFamilyCompositionMiddleName" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Margin="5"></TextBox>
+            <Label Content="Год рождения" Grid.Row="0" VerticalAlignment="Center"></Label>
+            <DatePicker Name="DpFamilyCompositionDateBirth" Grid.Column="1" VerticalAlignment="Center"></DatePicker>
+            <Label Grid.Row="0" Content="Номер паспорта" VerticalAlignment="Bottom"></Label>
+            <TextBox Name="TbWorkerPassportNumber" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" Margin="5"></TextBox>
+            <Label Content="Дата выдачи паспорта" Grid.Row="1"></Label>
+            <DatePicker Name="DpWorkerPassportDateIssue" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"></DatePicker>
+            <Label Content="Паспорт выдан" Grid.Row="1" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbWorkerPassportGet" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+            <Label Grid.Row="1" VerticalAlignment="Bottom" Content="Адрес по паспорту. Индекс"></Label>
+            <TextBox Name="TbPassportAddressIndex" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"></TextBox>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Адрес по паспорту"></Label>
+            <TextBox Name="TbPassportAddress" Grid.Column="1" VerticalAlignment="Top" Margin="5"></TextBox>
+            <Label Content="Фактический индекс" VerticalAlignment="Center"></Label>
+            <TextBox Name="TbActualAddressIndex" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+            <Label Content="Фактический адрес" Grid.Column="0" VerticalAlignment="Bottom"></Label>
+            <TextBox Name="ActualAddress" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom"></TextBox>
+            <Label Grid.Row="1" Content="Дата регистрации"></Label>
+            <DatePicker Name="DpRegistrationDate" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="5"></DatePicker>
+            <Label Grid.Row="1" VerticalAlignment="Center" Content="Номер телефона"></Label>
+            <TextBox Name="TbNumberPhone" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5"></TextBox>
+            <Label Content="Категория запаса" Grid.Row="1" VerticalAlignment="Bottom"></Label>
+            <ComboBox Name="CbStockCategory" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"></ComboBox>
+            
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Воинское звание"></Label>
+            <ComboBox Name="CbMilitaryRank" Grid.Column="1" VerticalAlignment="Top" Margin="5"></ComboBox>
+            <Label Content="Состав (профиль)" VerticalAlignment="Center"></Label>
+            <ComboBox Name="CbCompositionProfile" Grid.Column="1" VerticalAlignment="Center" Margin="5"></ComboBox>
+            <Label Grid.Row="0" VerticalAlignment="Bottom" Content="Полн. код. обознач. ВУС"></Label>
+            <TextBox Name="TbFullCodeDesignationVUS" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Margin="5"></TextBox>
+            <Label Grid.Row="1" Content="Категория годности"></Label>
+            <ComboBox Name="CbEligibilityCategory" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"></ComboBox>
+            <Label Grid.Row="1" VerticalAlignment="Center" Content="Комиссариат"></Label>
+            <TextBox Name="TbMilitaryCommissariat" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"></TextBox>
+            <Label Grid.Row="1" VerticalAlignment="Bottom" Content="Общ. Воинский учёт"></Label>
+            <TextBox Name="TbGeneralMilitaryRecords" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"></TextBox>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Спец. Воинский учёт"></Label>
+            <TextBox Name="TbSpecialMilitaryRecords" Grid.Column="1" VerticalAlignment="Top" Margin="5"></TextBox>
+            <Label  VerticalAlignment="Center" Content="Отметка о снятии с учёта"></Label>
+            <TextBox Name="TbMarkDismissalMilitaryRegistry" VerticalAlignment="Center" Grid.Column="1"></TextBox>
+            <Label Content="Непрервыный стаж лет" VerticalAlignment="Bottom"></Label>
+            <TextBox Name="TbWorkExperienceContinuousYears" Grid.Column="1" VerticalAlignment="Bottom" ></TextBox>
+            <Label Content="Табельный номер" Grid.Row="1" VerticalAlignment="Top"></Label>
+            <TextBox Name="TbServiceNumber" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="5"></TextBox>
+            <Label Grid.Row="1" VerticalAlignment="Center" Content="ИНН"></Label>
+            <TextBox Name="TbINN" Grid.Row="1" VerticalAlignment="Center" Grid.Column="1"></TextBox>
+            <Label Grid.Row="1" VerticalAlignment="Bottom" Content="СНИЛС"></Label>
+            <TextBox Margin="5" Name="TbSNILS" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"></TextBox>
+            
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Пол"></Label>
+            <ComboBox Name="CbSex" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top"></ComboBox>
+            <Label Content="Роль" Grid.Row="0" VerticalAlignment="Center"></Label>
+            <ComboBox Name="CbUsers" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></ComboBox>
+            <Label Content="Компания" VerticalAlignment="Bottom"></Label>
+            <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Name="CbCompany"></ComboBox>
+            <Label Content="Первая буква фамилии" Grid.Row="1"></Label>
+            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="5" Name="TbFirstLetter"></TextBox>
+            <Label Content="Характер работы" Grid.Row="1" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Name="CbKindWork"></ComboBox>
+            <Label Content="Тип работы" Grid.Row="1" VerticalAlignment="Bottom"></Label>
+            <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Name="CbTypeWork"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Компания код"></Label>
+            <TextBox Grid.Column="1" VerticalAlignment="Top" Margin="5" Name="TbCompanyCode"></TextBox>
+            <Label Content="Должность" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Name="CbPosition"></ComboBox>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1">
+                <Button Margin="5" Content="Добавить" Height="30" Width="100" Name="BtnAddNewEmployee" Click="BtnAddNewEmployee_Click"></Button>
+                <Button Margin="5" Content="Назад" Height="30" Width="100" Name="BtnGoBack" Click="BtnGoBack_Click"></Button>
+                
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

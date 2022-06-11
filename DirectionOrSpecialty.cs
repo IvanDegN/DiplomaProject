@@ -22,7 +22,6 @@ namespace DiplomaProject
     
         public int IdDirectionOrSpecialty { get; set; }
         public string DirectionOrSpecialty1 { get; set; }
-        public int DirectionOrSpecialtyCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Education> Education { get; set; }

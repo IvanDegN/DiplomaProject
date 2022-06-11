@@ -65,7 +65,6 @@
           </Key>
           <Property Name="IdCitizenship" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="CitizenshipCode" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -73,7 +72,6 @@
           </Key>
           <Property Name="IdCompany" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TitleCompany" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TitleCompanyCode" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CompositionProfile">
           <Key>
@@ -95,7 +93,6 @@
           </Key>
           <Property Name="IdDirectionOrSpecialty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DirectionOrSpecialty" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DirectionOrSpecialtyCode" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Dismissal">
           <Key>
@@ -131,12 +128,10 @@
           </Key>
           <Property Name="IdEducation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EducationalInstitution" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="IdDocumentAboutEducation" Type="int" Nullable="false" />
           <Property Name="FinishEducation" Type="date" Nullable="false" />
           <Property Name="IdQualification" Type="int" Nullable="false" />
           <Property Name="IdDirectionOrSpecialty" Type="int" Nullable="false" />
-          <Property Name="EducationCode" Type="int" Nullable="false" />
-          <Property Name="EducationTitleId" Type="int" Nullable="false" />
+          <Property Name="EducationCode" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="EducationTitle">
           <Key>
@@ -157,7 +152,7 @@
             <PropertyRef Name="IdEmploymentContract" />
           </Key>
           <Property Name="IdEmploymentContract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="FamilyComposition">
@@ -166,10 +161,18 @@
           </Key>
           <Property Name="IdFamilyComposition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DegreeKinship" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
-          <Property Name="DateBirth" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HiringRetraining">
+          <Key>
+            <PropertyRef Name="HiringRetrainingId" />
+            <PropertyRef Name="IdHiringTransfersOtherJobs" />
+            <PropertyRef Name="IdProfessionalRetraining" />
+            <PropertyRef Name="IdPosition" />
+          </Key>
+          <Property Name="HiringRetrainingId" Type="int" Nullable="false" />
+          <Property Name="IdHiringTransfersOtherJobs" Type="int" Nullable="false" />
+          <Property Name="IdProfessionalRetraining" Type="int" Nullable="false" />
+          <Property Name="IdPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="HiringTransfersOtherJobs">
           <Key>
@@ -214,7 +217,21 @@
           </Key>
           <Property Name="IdLanguageKnowledgeType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LanguageKnowledgeType" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LanguageKnowledgeTypeCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LanguageName">
+          <Key>
+            <PropertyRef Name="IdLanguageName" />
+          </Key>
+          <Property Name="IdLanguageName" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageNameTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="IdManager" />
+          </Key>
+          <Property Name="IdManager" Type="int" Nullable="false" />
+          <Property Name="UsersId" Type="int" Nullable="false" />
+          <Property Name="RolesId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MaritalStatus">
           <Key>
@@ -222,7 +239,6 @@
           </Key>
           <Property Name="IdMaritalStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaritalStatus" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="MaritalStatusCode" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MilitaryCommissariat">
           <Key>
@@ -289,7 +305,6 @@
           </Key>
           <Property Name="IdPlaceBirth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlaceBirth" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="PlaceBirthCode" Type="nvarchar" MaxLength="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -303,10 +318,7 @@
             <PropertyRef Name="IdProfession" />
           </Key>
           <Property Name="IdProfession" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BaseProfession" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="OtherProfession" Type="nvarchar" MaxLength="50" />
-          <Property Name="BaseProfessionCode" Type="int" Nullable="false" />
-          <Property Name="OtherProfessionCode" Type="int" />
+          <Property Name="Profession" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ProfessionalDevelopment">
           <Key>
@@ -356,12 +368,6 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProfessionalRetrainingHiringTransfersOtherJobs">
-          <Key>
-            <PropertyRef Name="IdPosition" />
-          </Key>
-          <Property Name="IdPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Qualification">
           <Key>
@@ -444,6 +450,65 @@
           <Property Name="IdVacationType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VacationType" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="WorkCard">
+          <Key>
+            <PropertyRef Name="IdWorkCard" />
+          </Key>
+          <Property Name="IdWorkCard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCompany" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+          <Property Name="ServiceNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="INN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SNILS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstLetter" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdKindWork" Type="int" Nullable="false" />
+          <Property Name="IdTypeWork" Type="int" Nullable="false" />
+          <Property Name="IdSex" Type="int" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateBirth" Type="date" Nullable="false" />
+          <Property Name="DateBirthCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdPlaceBirth" Type="int" Nullable="false" />
+          <Property Name="PlaceBirthCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdCitizenship" Type="int" Nullable="false" />
+          <Property Name="CitizenshipCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdLanguageName" Type="int" Nullable="false" />
+          <Property Name="LanguageNameCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdLanguageKnowledgeType" Type="int" Nullable="false" />
+          <Property Name="EducationTitleId" Type="int" Nullable="false" />
+          <Property Name="EducationTitleCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdProfession" Type="int" Nullable="false" />
+          <Property Name="ProfessionCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpDate" Type="date" Nullable="false" />
+          <Property Name="WorkExpTotalDays" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpTotalMonths" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpTotalYears" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpConDays" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpConMonths" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WokrExpConYears" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpBonusDays" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpBounsMonths" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExpBonusYears" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdMaritalStatus" Type="int" Nullable="false" />
+          <Property Name="MaritalStatusCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdFamilyComposition" Type="int" Nullable="false" />
+          <Property Name="FamilyCompositionLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FamilyCompositionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FamilyCompositionMiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyCompositionBirthDate" Type="date" Nullable="false" />
+          <Property Name="PassportNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassportGetDate" Type="date" Nullable="false" />
+          <Property Name="PassportWhoGet" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ActualAddressIndex" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActualAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PassportIndex" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassportAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RegistrationDate" Type="date" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TitleCompanyCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DirectionOrSpecialtyCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Worker">
           <Key>
             <PropertyRef Name="IdWorker" />
@@ -461,22 +526,24 @@
           <Property Name="IdWorkExperience" Type="int" Nullable="false" />
           <Property Name="IdMaritalStatus" Type="int" Nullable="false" />
           <Property Name="IdFamilyComposition" Type="int" Nullable="false" />
-          <Property Name="PassportNumber" Type="int" Nullable="false" />
+          <Property Name="PassportNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PassportDateIssue" Type="date" Nullable="false" />
           <Property Name="PassportAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="ActualAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="PassportAddressIndex" Type="int" Nullable="false" />
+          <Property Name="PassportAddressIndex" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RegistrationDate" Type="date" Nullable="false" />
-          <Property Name="NumberPhone" Type="int" Nullable="false" />
+          <Property Name="NumberPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdPersonalCard" Type="int" Nullable="false" />
-          <Property Name="ActualAddressIndex" Type="int" Nullable="false" />
-          <Property Name="ServiceNumber" Type="int" Nullable="false" />
-          <Property Name="INN" Type="int" Nullable="false" />
-          <Property Name="SNILS" Type="int" Nullable="false" />
+          <Property Name="ActualAddressIndex" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ServiceNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="INN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SNILS" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdSex" Type="int" Nullable="false" />
           <Property Name="IdMilitaryRegistration" Type="int" Nullable="false" />
           <Property Name="PassportGet" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UsersId" Type="int" Nullable="false" />
+          <Property Name="BirthDateCode" Type="int" Nullable="false" />
+          <Property Name="IdQualification" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WorkExperience">
           <Key>
@@ -587,31 +654,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Education_DocumentAboutEducation">
-          <End Role="DocumentAboutEducation" Type="Self.DocumentAboutEducation" Multiplicity="1" />
-          <End Role="Education" Type="Self.Education" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DocumentAboutEducation">
-              <PropertyRef Name="IdDocumentAboutEducation" />
-            </Principal>
-            <Dependent Role="Education">
-              <PropertyRef Name="IdDocumentAboutEducation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Education_EducationTitle">
-          <End Role="EducationTitle" Type="Self.EducationTitle" Multiplicity="1" />
-          <End Role="Education" Type="Self.Education" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EducationTitle">
-              <PropertyRef Name="EducationTitleId" />
-            </Principal>
-            <Dependent Role="Education">
-              <PropertyRef Name="EducationTitleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Education_Qualification">
+        <Association Name="FK_Education_Qualification1">
           <End Role="Qualification" Type="Self.Qualification" Multiplicity="1" />
           <End Role="Education" Type="Self.Education" Multiplicity="*" />
           <ReferentialConstraint>
@@ -620,6 +663,42 @@
             </Principal>
             <Dependent Role="Education">
               <PropertyRef Name="IdQualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HiringRetraining_HiringTransfersOtherJobs">
+          <End Role="HiringTransfersOtherJobs" Type="Self.HiringTransfersOtherJobs" Multiplicity="1" />
+          <End Role="HiringRetraining" Type="Self.HiringRetraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HiringTransfersOtherJobs">
+              <PropertyRef Name="IdHiringTransfersOtherJobs" />
+            </Principal>
+            <Dependent Role="HiringRetraining">
+              <PropertyRef Name="IdHiringTransfersOtherJobs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HiringRetraining_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="HiringRetraining" Type="Self.HiringRetraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="IdPosition" />
+            </Principal>
+            <Dependent Role="HiringRetraining">
+              <PropertyRef Name="IdPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HiringRetraining_ProfessionalRetraining">
+          <End Role="ProfessionalRetraining" Type="Self.ProfessionalRetraining" Multiplicity="1" />
+          <End Role="HiringRetraining" Type="Self.HiringRetraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfessionalRetraining">
+              <PropertyRef Name="IdProfessionalRetraining" />
+            </Principal>
+            <Dependent Role="HiringRetraining">
+              <PropertyRef Name="IdProfessionalRetraining" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -635,27 +714,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_HiringTransfersOtherJobs_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
-          <End Role="HiringTransfersOtherJobs" Type="Self.HiringTransfersOtherJobs" Multiplicity="*" />
+        <Association Name="FK_Manager_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="IdPosition" />
+            <Principal Role="Roles">
+              <PropertyRef Name="RolesId" />
             </Principal>
-            <Dependent Role="HiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
+            <Dependent Role="Manager">
+              <PropertyRef Name="RolesId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LanguageKnowledge_LanguageKnowledgeType">
-          <End Role="LanguageKnowledgeType" Type="Self.LanguageKnowledgeType" Multiplicity="1" />
-          <End Role="LanguageKnowledge" Type="Self.LanguageKnowledge" Multiplicity="*" />
+        <Association Name="FK_Manager_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LanguageKnowledgeType">
-              <PropertyRef Name="IdLanguageKnowledgeType" />
+            <Principal Role="Users">
+              <PropertyRef Name="UsersId" />
             </Principal>
-            <Dependent Role="LanguageKnowledge">
-              <PropertyRef Name="IdLanguageKnowledgeType" />
+            <Dependent Role="Manager">
+              <PropertyRef Name="UsersId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -707,7 +786,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MilitaryRecords_Position">
+        <Association Name="FK_MilitaryRecords_Position1">
           <End Role="Position" Type="Self.Position" Multiplicity="1" />
           <End Role="MilitaryRecords" Type="Self.MilitaryRecords" Multiplicity="*" />
           <ReferentialConstraint>
@@ -767,18 +846,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonalCard_Company">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Company">
-              <PropertyRef Name="IdCompany" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdCompany" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PersonalCard_Dismissal">
           <End Role="Dismissal" Type="Self.Dismissal" Multiplicity="1" />
           <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
@@ -788,30 +855,6 @@
             </Principal>
             <Dependent Role="PersonalCard">
               <PropertyRef Name="IdDismissal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonalCard_EmploymentContract">
-          <End Role="EmploymentContract" Type="Self.EmploymentContract" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmploymentContract">
-              <PropertyRef Name="IdEmploymentContract" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdEmploymentContract" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonalCard_KindWork">
-          <End Role="KindWork" Type="Self.KindWork" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KindWork">
-              <PropertyRef Name="IdKindWork" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdKindWork" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -863,30 +906,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonalCard_Sex">
-          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sex">
-              <PropertyRef Name="IdSex" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdSex" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonalCard_TypeWork">
-          <End Role="TypeWork" Type="Self.TypeWork" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeWork">
-              <PropertyRef Name="IdTypeWork" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdTypeWork" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PersonalCard_Vacation">
           <End Role="Vacation" Type="Self.Vacation" Multiplicity="1" />
           <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
@@ -935,54 +954,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs">
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="1" />
-          <End Role="ProfessionalRetraining" Type="Self.ProfessionalRetraining" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProfessionalRetrainingHiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Principal>
-            <Dependent Role="ProfessionalRetraining">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs">
-          <End Role="HiringTransfersOtherJobs" Type="Self.HiringTransfersOtherJobs" Multiplicity="1" />
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="HiringTransfersOtherJobs">
-              <PropertyRef Name="IdHiringTransfersOtherJobs" />
-            </Principal>
-            <Dependent Role="ProfessionalRetrainingHiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="IdPosition" />
-            </Principal>
-            <Dependent Role="ProfessionalRetrainingHiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining">
-          <End Role="ProfessionalRetraining" Type="Self.ProfessionalRetraining" Multiplicity="1" />
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="ProfessionalRetraining">
-              <PropertyRef Name="IdProfessionalRetraining" />
-            </Principal>
-            <Dependent Role="ProfessionalRetrainingHiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rewards_RewardDocument">
           <End Role="RewardDocument" Type="Self.RewardDocument" Multiplicity="1" />
           <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
@@ -1019,63 +990,147 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_Citizenship">
+        <Association Name="FK_WorkCard_Citizenship">
           <End Role="Citizenship" Type="Self.Citizenship" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Citizenship">
               <PropertyRef Name="IdCitizenship" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdCitizenship" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_Education">
-          <End Role="Education" Type="Self.Education" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+        <Association Name="FK_WorkCard_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Education">
-              <PropertyRef Name="IdEducation" />
+            <Principal Role="Company">
+              <PropertyRef Name="IdCompany" />
             </Principal>
-            <Dependent Role="Worker">
-              <PropertyRef Name="IdEducation" />
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdCompany" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_FamilyComposition">
+        <Association Name="FK_WorkCard_EducationTitle">
+          <End Role="EducationTitle" Type="Self.EducationTitle" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationTitle">
+              <PropertyRef Name="EducationTitleId" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="EducationTitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_FamilyComposition">
           <End Role="FamilyComposition" Type="Self.FamilyComposition" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FamilyComposition">
               <PropertyRef Name="IdFamilyComposition" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdFamilyComposition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_LanguageKnowledge">
-          <End Role="LanguageKnowledge" Type="Self.LanguageKnowledge" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+        <Association Name="FK_WorkCard_KindWork">
+          <End Role="KindWork" Type="Self.KindWork" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LanguageKnowledge">
-              <PropertyRef Name="IdLanguageKnowledge" />
+            <Principal Role="KindWork">
+              <PropertyRef Name="IdKindWork" />
             </Principal>
-            <Dependent Role="Worker">
-              <PropertyRef Name="IdLanguageKnowledge" />
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdKindWork" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_MaritalStatus">
+        <Association Name="FK_WorkCard_LanguageKnowledgeType">
+          <End Role="LanguageKnowledgeType" Type="Self.LanguageKnowledgeType" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKnowledgeType">
+              <PropertyRef Name="IdLanguageKnowledgeType" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdLanguageKnowledgeType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_LanguageName">
+          <End Role="LanguageName" Type="Self.LanguageName" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageName">
+              <PropertyRef Name="IdLanguageName" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdLanguageName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_MaritalStatus">
           <End Role="MaritalStatus" Type="Self.MaritalStatus" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MaritalStatus">
               <PropertyRef Name="IdMaritalStatus" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdMaritalStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_PlaceBirth">
+          <End Role="PlaceBirth" Type="Self.PlaceBirth" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceBirth">
+              <PropertyRef Name="IdPlaceBirth" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdPlaceBirth" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_Profession">
+          <End Role="Profession" Type="Self.Profession" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profession">
+              <PropertyRef Name="IdProfession" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdProfession" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_Sex">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="IdSex" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdSex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_TypeWork">
+          <End Role="TypeWork" Type="Self.TypeWork" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeWork">
+              <PropertyRef Name="IdTypeWork" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdTypeWork" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1088,42 +1143,6 @@
             </Principal>
             <Dependent Role="Worker">
               <PropertyRef Name="IdPersonalCard" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Worker_PlaceBirth">
-          <End Role="PlaceBirth" Type="Self.PlaceBirth" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PlaceBirth">
-              <PropertyRef Name="IdPlaceBirth" />
-            </Principal>
-            <Dependent Role="Worker">
-              <PropertyRef Name="IdPlaceBirth" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Worker_Profession">
-          <End Role="Profession" Type="Self.Profession" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profession">
-              <PropertyRef Name="IdProfession" />
-            </Principal>
-            <Dependent Role="Worker">
-              <PropertyRef Name="IdProfession" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Worker_Sex">
-          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sex">
-              <PropertyRef Name="IdSex" />
-            </Principal>
-            <Dependent Role="Worker">
-              <PropertyRef Name="IdSex" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1207,11 +1226,14 @@
           <EntitySet Name="EligibilityCategory" EntityType="Self.EligibilityCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmploymentContract" EntityType="Self.EmploymentContract" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FamilyComposition" EntityType="Self.FamilyComposition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HiringRetraining" EntityType="Self.HiringRetraining" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HiringTransfersOtherJobs" EntityType="Self.HiringTransfersOtherJobs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HRworker" EntityType="Self.HRworker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KindWork" EntityType="Self.KindWork" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LanguageKnowledge" EntityType="Self.LanguageKnowledge" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LanguageKnowledgeType" EntityType="Self.LanguageKnowledgeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LanguageName" EntityType="Self.LanguageName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MilitaryCommissariat" EntityType="Self.MilitaryCommissariat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MilitaryRank" EntityType="Self.MilitaryRank" Schema="dbo" store:Type="Tables" />
@@ -1225,7 +1247,6 @@
           <EntitySet Name="ProfessionalDevelopmentType" EntityType="Self.ProfessionalDevelopmentType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProfessionalRetraining" EntityType="Self.ProfessionalRetraining" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProfessionalRetrainingDocument" EntityType="Self.ProfessionalRetrainingDocument" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProfessionalRetrainingHiringTransfersOtherJobs" EntityType="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Qualification" EntityType="Self.Qualification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RewardDocument" EntityType="Self.RewardDocument" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rewards" EntityType="Self.Rewards" Schema="dbo" store:Type="Tables" />
@@ -1236,6 +1257,7 @@
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vacation" EntityType="Self.Vacation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VacationType" EntityType="Self.VacationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkCard" EntityType="Self.WorkCard" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkExperience" EntityType="Self.WorkExperience" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkExperienceBonus" EntityType="Self.WorkExperienceBonus" Schema="dbo" store:Type="Tables" />
@@ -1265,29 +1287,33 @@
             <End Role="DirectionOrSpecialty" EntitySet="DirectionOrSpecialty" />
             <End Role="Education" EntitySet="Education" />
           </AssociationSet>
-          <AssociationSet Name="FK_Education_DocumentAboutEducation" Association="Self.FK_Education_DocumentAboutEducation">
-            <End Role="DocumentAboutEducation" EntitySet="DocumentAboutEducation" />
-            <End Role="Education" EntitySet="Education" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Education_EducationTitle" Association="Self.FK_Education_EducationTitle">
-            <End Role="EducationTitle" EntitySet="EducationTitle" />
-            <End Role="Education" EntitySet="Education" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Education_Qualification" Association="Self.FK_Education_Qualification">
+          <AssociationSet Name="FK_Education_Qualification1" Association="Self.FK_Education_Qualification1">
             <End Role="Qualification" EntitySet="Qualification" />
             <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HiringRetraining_HiringTransfersOtherJobs" Association="Self.FK_HiringRetraining_HiringTransfersOtherJobs">
+            <End Role="HiringTransfersOtherJobs" EntitySet="HiringTransfersOtherJobs" />
+            <End Role="HiringRetraining" EntitySet="HiringRetraining" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HiringRetraining_Position" Association="Self.FK_HiringRetraining_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="HiringRetraining" EntitySet="HiringRetraining" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HiringRetraining_ProfessionalRetraining" Association="Self.FK_HiringRetraining_ProfessionalRetraining">
+            <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
+            <End Role="HiringRetraining" EntitySet="HiringRetraining" />
           </AssociationSet>
           <AssociationSet Name="FK_HiringTransfersOtherJobs_Department" Association="Self.FK_HiringTransfersOtherJobs_Department">
             <End Role="Department" EntitySet="Department" />
             <End Role="HiringTransfersOtherJobs" EntitySet="HiringTransfersOtherJobs" />
           </AssociationSet>
-          <AssociationSet Name="FK_HiringTransfersOtherJobs_Position" Association="Self.FK_HiringTransfersOtherJobs_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="HiringTransfersOtherJobs" EntitySet="HiringTransfersOtherJobs" />
+          <AssociationSet Name="FK_Manager_Roles" Association="Self.FK_Manager_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Manager" EntitySet="Manager" />
           </AssociationSet>
-          <AssociationSet Name="FK_LanguageKnowledge_LanguageKnowledgeType" Association="Self.FK_LanguageKnowledge_LanguageKnowledgeType">
-            <End Role="LanguageKnowledgeType" EntitySet="LanguageKnowledgeType" />
-            <End Role="LanguageKnowledge" EntitySet="LanguageKnowledge" />
+          <AssociationSet Name="FK_Manager_Users" Association="Self.FK_Manager_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Manager" EntitySet="Manager" />
           </AssociationSet>
           <AssociationSet Name="FK_MilitaryRecords_CompositionProfile" Association="Self.FK_MilitaryRecords_CompositionProfile">
             <End Role="CompositionProfile" EntitySet="CompositionProfile" />
@@ -1305,7 +1331,7 @@
             <End Role="MilitaryRank" EntitySet="MilitaryRank" />
             <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
           </AssociationSet>
-          <AssociationSet Name="FK_MilitaryRecords_Position" Association="Self.FK_MilitaryRecords_Position">
+          <AssociationSet Name="FK_MilitaryRecords_Position1" Association="Self.FK_MilitaryRecords_Position1">
             <End Role="Position" EntitySet="Position" />
             <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
           </AssociationSet>
@@ -1325,20 +1351,8 @@
             <End Role="Certification" EntitySet="Certification" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_Company" Association="Self.FK_PersonalCard_Company">
-            <End Role="Company" EntitySet="Company" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
           <AssociationSet Name="FK_PersonalCard_Dismissal" Association="Self.FK_PersonalCard_Dismissal">
             <End Role="Dismissal" EntitySet="Dismissal" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_EmploymentContract" Association="Self.FK_PersonalCard_EmploymentContract">
-            <End Role="EmploymentContract" EntitySet="EmploymentContract" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_KindWork" Association="Self.FK_PersonalCard_KindWork">
-            <End Role="KindWork" EntitySet="KindWork" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
           </AssociationSet>
           <AssociationSet Name="FK_PersonalCard_MilitaryRecords" Association="Self.FK_PersonalCard_MilitaryRecords">
@@ -1357,14 +1371,6 @@
             <End Role="Rewards" EntitySet="Rewards" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_Sex" Association="Self.FK_PersonalCard_Sex">
-            <End Role="Sex" EntitySet="Sex" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_TypeWork" Association="Self.FK_PersonalCard_TypeWork">
-            <End Role="TypeWork" EntitySet="TypeWork" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
           <AssociationSet Name="FK_PersonalCard_Vacation" Association="Self.FK_PersonalCard_Vacation">
             <End Role="Vacation" EntitySet="Vacation" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
@@ -1381,22 +1387,6 @@
             <End Role="ProfessionalRetrainingDocument" EntitySet="ProfessionalRetrainingDocument" />
             <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs" Association="Self.FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs">
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
-            <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs" Association="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs">
-            <End Role="HiringTransfersOtherJobs" EntitySet="HiringTransfersOtherJobs" />
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position" Association="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining" Association="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining">
-            <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
-          </AssociationSet>
           <AssociationSet Name="FK_Rewards_RewardDocument" Association="Self.FK_Rewards_RewardDocument">
             <End Role="RewardDocument" EntitySet="RewardDocument" />
             <End Role="Rewards" EntitySet="Rewards" />
@@ -1409,40 +1399,56 @@
             <End Role="VacationType" EntitySet="VacationType" />
             <End Role="Vacation" EntitySet="Vacation" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_Citizenship" Association="Self.FK_Worker_Citizenship">
+          <AssociationSet Name="FK_WorkCard_Citizenship" Association="Self.FK_WorkCard_Citizenship">
             <End Role="Citizenship" EntitySet="Citizenship" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_Education" Association="Self.FK_Worker_Education">
-            <End Role="Education" EntitySet="Education" />
-            <End Role="Worker" EntitySet="Worker" />
+          <AssociationSet Name="FK_WorkCard_Company" Association="Self.FK_WorkCard_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_FamilyComposition" Association="Self.FK_Worker_FamilyComposition">
+          <AssociationSet Name="FK_WorkCard_EducationTitle" Association="Self.FK_WorkCard_EducationTitle">
+            <End Role="EducationTitle" EntitySet="EducationTitle" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_FamilyComposition" Association="Self.FK_WorkCard_FamilyComposition">
             <End Role="FamilyComposition" EntitySet="FamilyComposition" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_LanguageKnowledge" Association="Self.FK_Worker_LanguageKnowledge">
-            <End Role="LanguageKnowledge" EntitySet="LanguageKnowledge" />
-            <End Role="Worker" EntitySet="Worker" />
+          <AssociationSet Name="FK_WorkCard_KindWork" Association="Self.FK_WorkCard_KindWork">
+            <End Role="KindWork" EntitySet="KindWork" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_MaritalStatus" Association="Self.FK_Worker_MaritalStatus">
+          <AssociationSet Name="FK_WorkCard_LanguageKnowledgeType" Association="Self.FK_WorkCard_LanguageKnowledgeType">
+            <End Role="LanguageKnowledgeType" EntitySet="LanguageKnowledgeType" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_LanguageName" Association="Self.FK_WorkCard_LanguageName">
+            <End Role="LanguageName" EntitySet="LanguageName" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_MaritalStatus" Association="Self.FK_WorkCard_MaritalStatus">
             <End Role="MaritalStatus" EntitySet="MaritalStatus" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_PlaceBirth" Association="Self.FK_WorkCard_PlaceBirth">
+            <End Role="PlaceBirth" EntitySet="PlaceBirth" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_Profession" Association="Self.FK_WorkCard_Profession">
+            <End Role="Profession" EntitySet="Profession" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_Sex" Association="Self.FK_WorkCard_Sex">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_TypeWork" Association="Self.FK_WorkCard_TypeWork">
+            <End Role="TypeWork" EntitySet="TypeWork" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
           <AssociationSet Name="FK_Worker_PersonalCard" Association="Self.FK_Worker_PersonalCard">
             <End Role="PersonalCard" EntitySet="PersonalCard" />
-            <End Role="Worker" EntitySet="Worker" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Worker_PlaceBirth" Association="Self.FK_Worker_PlaceBirth">
-            <End Role="PlaceBirth" EntitySet="PlaceBirth" />
-            <End Role="Worker" EntitySet="Worker" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Worker_Profession" Association="Self.FK_Worker_Profession">
-            <End Role="Profession" EntitySet="Profession" />
-            <End Role="Worker" EntitySet="Worker" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Worker_Sex" Association="Self.FK_Worker_Sex">
-            <End Role="Sex" EntitySet="Sex" />
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
           <AssociationSet Name="FK_Worker_Users" Association="Self.FK_Worker_Users">
@@ -1540,8 +1546,7 @@
           </Key>
           <Property Name="IdCitizenship" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Citizenship1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CitizenshipCode" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Citizenship" FromRole="Citizenship" ToRole="Worker" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_Citizenship" FromRole="Citizenship" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -1549,8 +1554,7 @@
           </Key>
           <Property Name="IdCompany" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleCompany" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TitleCompanyCode" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_Company" FromRole="Company" ToRole="PersonalCard" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_Company" FromRole="Company" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="CompositionProfile">
           <Key>
@@ -1574,7 +1578,6 @@
           </Key>
           <Property Name="IdDirectionOrSpecialty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DirectionOrSpecialty1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DirectionOrSpecialtyCode" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Education" Relationship="Self.FK_Education_DirectionOrSpecialty" FromRole="DirectionOrSpecialty" ToRole="Education" />
         </EntityType>
         <EntityType Name="Dismissal">
@@ -1608,7 +1611,6 @@
           <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Series" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Number" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Education" Relationship="Self.FK_Education_DocumentAboutEducation" FromRole="DocumentAboutEducation" ToRole="Education" />
         </EntityType>
         <EntityType Name="Education">
           <Key>
@@ -1616,17 +1618,12 @@
           </Key>
           <Property Name="IdEducation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EducationalInstitution" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdDocumentAboutEducation" Type="Int32" Nullable="false" />
           <Property Name="FinishEducation" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdQualification" Type="Int32" Nullable="false" />
           <Property Name="IdDirectionOrSpecialty" Type="Int32" Nullable="false" />
-          <Property Name="EducationCode" Type="Int32" Nullable="false" />
-          <Property Name="EducationTitleId" Type="Int32" Nullable="false" />
+          <Property Name="EducationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DirectionOrSpecialty" Relationship="Self.FK_Education_DirectionOrSpecialty" FromRole="Education" ToRole="DirectionOrSpecialty" />
-          <NavigationProperty Name="DocumentAboutEducation" Relationship="Self.FK_Education_DocumentAboutEducation" FromRole="Education" ToRole="DocumentAboutEducation" />
-          <NavigationProperty Name="EducationTitle" Relationship="Self.FK_Education_EducationTitle" FromRole="Education" ToRole="EducationTitle" />
-          <NavigationProperty Name="Qualification" Relationship="Self.FK_Education_Qualification" FromRole="Education" ToRole="Qualification" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Education" FromRole="Education" ToRole="Worker" />
+          <NavigationProperty Name="Qualification" Relationship="Self.FK_Education_Qualification1" FromRole="Education" ToRole="Qualification" />
         </EntityType>
         <EntityType Name="EducationTitle">
           <Key>
@@ -1634,7 +1631,7 @@
           </Key>
           <Property Name="EducationTitleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Education" Relationship="Self.FK_Education_EducationTitle" FromRole="EducationTitle" ToRole="Education" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_EducationTitle" FromRole="EducationTitle" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="EligibilityCategory">
           <Key>
@@ -1649,9 +1646,8 @@
             <PropertyRef Name="IdEmploymentContract" />
           </Key>
           <Property Name="IdEmploymentContract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_EmploymentContract" FromRole="EmploymentContract" ToRole="PersonalCard" />
         </EntityType>
         <EntityType Name="FamilyComposition">
           <Key>
@@ -1659,11 +1655,22 @@
           </Key>
           <Property Name="IdFamilyComposition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DegreeKinship" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateBirth" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_FamilyComposition" FromRole="FamilyComposition" ToRole="Worker" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_FamilyComposition" FromRole="FamilyComposition" ToRole="WorkCard" />
+        </EntityType>
+        <EntityType Name="HiringRetraining">
+          <Key>
+            <PropertyRef Name="HiringRetrainingId" />
+            <PropertyRef Name="IdHiringTransfersOtherJobs" />
+            <PropertyRef Name="IdProfessionalRetraining" />
+            <PropertyRef Name="IdPosition" />
+          </Key>
+          <Property Name="HiringRetrainingId" Type="Int32" Nullable="false" />
+          <Property Name="IdHiringTransfersOtherJobs" Type="Int32" Nullable="false" />
+          <Property Name="IdProfessionalRetraining" Type="Int32" Nullable="false" />
+          <Property Name="IdPosition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="HiringTransfersOtherJobs" Relationship="Self.FK_HiringRetraining_HiringTransfersOtherJobs" FromRole="HiringRetraining" ToRole="HiringTransfersOtherJobs" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_HiringRetraining_Position" FromRole="HiringRetraining" ToRole="Position" />
+          <NavigationProperty Name="ProfessionalRetraining" Relationship="Self.FK_HiringRetraining_ProfessionalRetraining" FromRole="HiringRetraining" ToRole="ProfessionalRetraining" />
         </EntityType>
         <EntityType Name="HiringTransfersOtherJobs">
           <Key>
@@ -1677,8 +1684,7 @@
           <Property Name="Reason" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Signature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Department" Relationship="Self.FK_HiringTransfersOtherJobs_Department" FromRole="HiringTransfersOtherJobs" ToRole="Department" />
-          <NavigationProperty Name="Position" Relationship="Self.FK_HiringTransfersOtherJobs_Position" FromRole="HiringTransfersOtherJobs" ToRole="Position" />
-          <NavigationProperty Name="ProfessionalRetrainingHiringTransfersOtherJobs" Relationship="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs" FromRole="HiringTransfersOtherJobs" ToRole="ProfessionalRetrainingHiringTransfersOtherJobs" />
+          <NavigationProperty Name="HiringRetraining" Relationship="Self.FK_HiringRetraining_HiringTransfersOtherJobs" FromRole="HiringTransfersOtherJobs" ToRole="HiringRetraining" />
         </EntityType>
         <EntityType Name="HRworker">
           <Key>
@@ -1696,7 +1702,7 @@
           </Key>
           <Property Name="IdKindWork" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleKindWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_KindWork" FromRole="KindWork" ToRole="PersonalCard" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_KindWork" FromRole="KindWork" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="LanguageKnowledge">
           <Key>
@@ -1706,8 +1712,6 @@
           <Property Name="LanguageKnowledgeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdLanguageKnowledgeType" Type="Int32" Nullable="false" />
           <Property Name="LanguageKnowledgeCode" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LanguageKnowledgeType" Relationship="Self.FK_LanguageKnowledge_LanguageKnowledgeType" FromRole="LanguageKnowledge" ToRole="LanguageKnowledgeType" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_LanguageKnowledge" FromRole="LanguageKnowledge" ToRole="Worker" />
         </EntityType>
         <EntityType Name="LanguageKnowledgeType">
           <Key>
@@ -1715,8 +1719,25 @@
           </Key>
           <Property Name="IdLanguageKnowledgeType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LanguageKnowledgeType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LanguageKnowledgeTypeCode" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LanguageKnowledge" Relationship="Self.FK_LanguageKnowledge_LanguageKnowledgeType" FromRole="LanguageKnowledgeType" ToRole="LanguageKnowledge" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_LanguageKnowledgeType" FromRole="LanguageKnowledgeType" ToRole="WorkCard" />
+        </EntityType>
+        <EntityType Name="LanguageName">
+          <Key>
+            <PropertyRef Name="IdLanguageName" />
+          </Key>
+          <Property Name="IdLanguageName" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageNameTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_LanguageName" FromRole="LanguageName" ToRole="WorkCard" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="IdManager" />
+          </Key>
+          <Property Name="IdManager" Type="Int32" Nullable="false" />
+          <Property Name="UsersId" Type="Int32" Nullable="false" />
+          <Property Name="RolesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK_Manager_Roles" FromRole="Manager" ToRole="Roles" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Manager_Users" FromRole="Manager" ToRole="Users" />
         </EntityType>
         <EntityType Name="MaritalStatus">
           <Key>
@@ -1724,8 +1745,7 @@
           </Key>
           <Property Name="IdMaritalStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaritalStatus1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaritalStatusCode" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_MaritalStatus" FromRole="MaritalStatus" ToRole="Worker" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_MaritalStatus" FromRole="MaritalStatus" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="MilitaryCommissariat">
           <Key>
@@ -1764,7 +1784,7 @@
           <NavigationProperty Name="EligibilityCategory" Relationship="Self.FK_MilitaryRecords_EligibilityCategory" FromRole="MilitaryRecords" ToRole="EligibilityCategory" />
           <NavigationProperty Name="MilitaryCommissariat" Relationship="Self.FK_MilitaryRecords_MilitaryCommissariat" FromRole="MilitaryRecords" ToRole="MilitaryCommissariat" />
           <NavigationProperty Name="MilitaryRank" Relationship="Self.FK_MilitaryRecords_MilitaryRank" FromRole="MilitaryRecords" ToRole="MilitaryRank" />
-          <NavigationProperty Name="Position" Relationship="Self.FK_MilitaryRecords_Position" FromRole="MilitaryRecords" ToRole="Position" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_MilitaryRecords_Position1" FromRole="MilitaryRecords" ToRole="Position" />
           <NavigationProperty Name="StockCategory" Relationship="Self.FK_MilitaryRecords_StockCategory" FromRole="MilitaryRecords" ToRole="StockCategory" />
           <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_MilitaryRecords" FromRole="MilitaryRecords" ToRole="PersonalCard" />
         </EntityType>
@@ -1797,16 +1817,11 @@
           <NavigationProperty Name="AdmissionAndDismissal" Relationship="Self.FK_PersonalCard_AdmissionAndDismissal" FromRole="PersonalCard" ToRole="AdmissionAndDismissal" />
           <NavigationProperty Name="Benefits" Relationship="Self.FK_PersonalCard_Benefits" FromRole="PersonalCard" ToRole="Benefits" />
           <NavigationProperty Name="Certification" Relationship="Self.FK_PersonalCard_Certification" FromRole="PersonalCard" ToRole="Certification" />
-          <NavigationProperty Name="Company" Relationship="Self.FK_PersonalCard_Company" FromRole="PersonalCard" ToRole="Company" />
           <NavigationProperty Name="Dismissal" Relationship="Self.FK_PersonalCard_Dismissal" FromRole="PersonalCard" ToRole="Dismissal" />
-          <NavigationProperty Name="EmploymentContract" Relationship="Self.FK_PersonalCard_EmploymentContract" FromRole="PersonalCard" ToRole="EmploymentContract" />
-          <NavigationProperty Name="KindWork" Relationship="Self.FK_PersonalCard_KindWork" FromRole="PersonalCard" ToRole="KindWork" />
           <NavigationProperty Name="MilitaryRecords" Relationship="Self.FK_PersonalCard_MilitaryRecords" FromRole="PersonalCard" ToRole="MilitaryRecords" />
           <NavigationProperty Name="ProfessionalDevelopment" Relationship="Self.FK_PersonalCard_ProfessionalDevelopment" FromRole="PersonalCard" ToRole="ProfessionalDevelopment" />
           <NavigationProperty Name="ProfessionalRetraining" Relationship="Self.FK_PersonalCard_ProfessionalRetraining" FromRole="PersonalCard" ToRole="ProfessionalRetraining" />
           <NavigationProperty Name="Rewards" Relationship="Self.FK_PersonalCard_Rewards" FromRole="PersonalCard" ToRole="Rewards" />
-          <NavigationProperty Name="Sex" Relationship="Self.FK_PersonalCard_Sex" FromRole="PersonalCard" ToRole="Sex" />
-          <NavigationProperty Name="TypeWork" Relationship="Self.FK_PersonalCard_TypeWork" FromRole="PersonalCard" ToRole="TypeWork" />
           <NavigationProperty Name="Vacation" Relationship="Self.FK_PersonalCard_Vacation" FromRole="PersonalCard" ToRole="Vacation" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_PersonalCard" FromRole="PersonalCard" ToRole="Worker" />
         </EntityType>
@@ -1816,8 +1831,7 @@
           </Key>
           <Property Name="IdPlaceBirth" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PlaceBirth1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PlaceBirthCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_PlaceBirth" FromRole="PlaceBirth" ToRole="Worker" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_PlaceBirth" FromRole="PlaceBirth" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -1825,20 +1839,16 @@
           </Key>
           <Property Name="IdPosition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitlePosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="HiringTransfersOtherJobs" Relationship="Self.FK_HiringTransfersOtherJobs_Position" FromRole="Position" ToRole="HiringTransfersOtherJobs" />
-          <NavigationProperty Name="MilitaryRecords" Relationship="Self.FK_MilitaryRecords_Position" FromRole="Position" ToRole="MilitaryRecords" />
-          <NavigationProperty Name="ProfessionalRetrainingHiringTransfersOtherJobs" Relationship="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position" FromRole="Position" ToRole="ProfessionalRetrainingHiringTransfersOtherJobs" />
+          <NavigationProperty Name="HiringRetraining" Relationship="Self.FK_HiringRetraining_Position" FromRole="Position" ToRole="HiringRetraining" />
+          <NavigationProperty Name="MilitaryRecords" Relationship="Self.FK_MilitaryRecords_Position1" FromRole="Position" ToRole="MilitaryRecords" />
         </EntityType>
         <EntityType Name="Profession">
           <Key>
             <PropertyRef Name="IdProfession" />
           </Key>
           <Property Name="IdProfession" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BaseProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OtherProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BaseProfessionCode" Type="Int32" Nullable="false" />
-          <Property Name="OtherProfessionCode" Type="Int32" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Profession" FromRole="Profession" ToRole="Worker" />
+          <Property Name="Profession1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_Profession" FromRole="Profession" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="ProfessionalDevelopment">
           <Key>
@@ -1884,10 +1894,9 @@
           <Property Name="IdPosition" Type="Int32" Nullable="false" />
           <Property Name="IdProfessionalRetrainingDocument" Type="Int32" Nullable="false" />
           <Property Name="Footing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HiringRetraining" Relationship="Self.FK_HiringRetraining_ProfessionalRetraining" FromRole="ProfessionalRetraining" ToRole="HiringRetraining" />
           <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_ProfessionalRetraining" FromRole="ProfessionalRetraining" ToRole="PersonalCard" />
           <NavigationProperty Name="ProfessionalRetrainingDocument" Relationship="Self.FK_ProfessionalRetraining_ProfessionalRetrainingDocument" FromRole="ProfessionalRetraining" ToRole="ProfessionalRetrainingDocument" />
-          <NavigationProperty Name="ProfessionalRetrainingHiringTransfersOtherJobs" Relationship="Self.FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs" FromRole="ProfessionalRetraining" ToRole="ProfessionalRetrainingHiringTransfersOtherJobs" />
-          <NavigationProperty Name="ProfessionalRetrainingHiringTransfersOtherJobs1" Relationship="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining" FromRole="ProfessionalRetraining" ToRole="ProfessionalRetrainingHiringTransfersOtherJobs" />
         </EntityType>
         <EntityType Name="ProfessionalRetrainingDocument">
           <Key>
@@ -1899,23 +1908,13 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="ProfessionalRetraining" Relationship="Self.FK_ProfessionalRetraining_ProfessionalRetrainingDocument" FromRole="ProfessionalRetrainingDocument" ToRole="ProfessionalRetraining" />
         </EntityType>
-        <EntityType Name="ProfessionalRetrainingHiringTransfersOtherJobs">
-          <Key>
-            <PropertyRef Name="IdPosition" />
-          </Key>
-          <Property Name="IdPosition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="HiringTransfersOtherJobs" Relationship="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs" FromRole="ProfessionalRetrainingHiringTransfersOtherJobs" ToRole="HiringTransfersOtherJobs" />
-          <NavigationProperty Name="Position" Relationship="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position" FromRole="ProfessionalRetrainingHiringTransfersOtherJobs" ToRole="Position" />
-          <NavigationProperty Name="ProfessionalRetraining" Relationship="Self.FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs" FromRole="ProfessionalRetrainingHiringTransfersOtherJobs" ToRole="ProfessionalRetraining" />
-          <NavigationProperty Name="ProfessionalRetraining1" Relationship="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining" FromRole="ProfessionalRetrainingHiringTransfersOtherJobs" ToRole="ProfessionalRetraining" />
-        </EntityType>
         <EntityType Name="Qualification">
           <Key>
             <PropertyRef Name="IdQualification" />
           </Key>
           <Property Name="IdQualification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Qualification1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Education" Relationship="Self.FK_Education_Qualification" FromRole="Qualification" ToRole="Education" />
+          <NavigationProperty Name="Education" Relationship="Self.FK_Education_Qualification1" FromRole="Qualification" ToRole="Education" />
         </EntityType>
         <EntityType Name="RewardDocument">
           <Key>
@@ -1943,6 +1942,7 @@
           </Key>
           <Property Name="RolesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RolesTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_Manager_Roles" FromRole="Roles" ToRole="Manager" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
         </EntityType>
         <EntityType Name="Sex">
@@ -1951,8 +1951,7 @@
           </Key>
           <Property Name="IdSex" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleSex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_Sex" FromRole="Sex" ToRole="PersonalCard" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Sex" FromRole="Sex" ToRole="Worker" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_Sex" FromRole="Sex" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="StockCategory">
           <Key>
@@ -1968,7 +1967,7 @@
           </Key>
           <Property Name="IdTypeWork" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleTypeWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="PersonalCard" Relationship="Self.FK_PersonalCard_TypeWork" FromRole="TypeWork" ToRole="PersonalCard" />
+          <NavigationProperty Name="WorkCard" Relationship="Self.FK_WorkCard_TypeWork" FromRole="TypeWork" ToRole="WorkCard" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -1978,6 +1977,7 @@
           <Property Name="UsersLogin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UsersPassword" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RolesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_Manager_Users" FromRole="Users" ToRole="Manager" />
           <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Users" FromRole="Users" ToRole="Worker" />
         </EntityType>
@@ -2004,6 +2004,77 @@
           <Property Name="VacationType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Vacation" Relationship="Self.FK_Vacation_VacationType" FromRole="VacationType" ToRole="Vacation" />
         </EntityType>
+        <EntityType Name="WorkCard">
+          <Key>
+            <PropertyRef Name="IdWorkCard" />
+          </Key>
+          <Property Name="IdWorkCard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCompany" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ServiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SNILS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstLetter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdKindWork" Type="Int32" Nullable="false" />
+          <Property Name="IdTypeWork" Type="Int32" Nullable="false" />
+          <Property Name="IdSex" Type="Int32" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateBirthCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdPlaceBirth" Type="Int32" Nullable="false" />
+          <Property Name="PlaceBirthCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdCitizenship" Type="Int32" Nullable="false" />
+          <Property Name="CitizenshipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdLanguageName" Type="Int32" Nullable="false" />
+          <Property Name="LanguageNameCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdLanguageKnowledgeType" Type="Int32" Nullable="false" />
+          <Property Name="EducationTitleId" Type="Int32" Nullable="false" />
+          <Property Name="EducationTitleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdProfession" Type="Int32" Nullable="false" />
+          <Property Name="ProfessionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WorkExpTotalDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpTotalMonths" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpTotalYears" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpConDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpConMonths" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WokrExpConYears" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpBonusDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpBounsMonths" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExpBonusYears" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdMaritalStatus" Type="Int32" Nullable="false" />
+          <Property Name="MaritalStatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdFamilyComposition" Type="Int32" Nullable="false" />
+          <Property Name="FamilyCompositionLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FamilyCompositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FamilyCompositionMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyCompositionBirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PassportNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportGetDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PassportWhoGet" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActualAddressIndex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActualAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportIndex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TitleCompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DirectionOrSpecialtyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Citizenship" Relationship="Self.FK_WorkCard_Citizenship" FromRole="WorkCard" ToRole="Citizenship" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_WorkCard_Company" FromRole="WorkCard" ToRole="Company" />
+          <NavigationProperty Name="EducationTitle" Relationship="Self.FK_WorkCard_EducationTitle" FromRole="WorkCard" ToRole="EducationTitle" />
+          <NavigationProperty Name="FamilyComposition" Relationship="Self.FK_WorkCard_FamilyComposition" FromRole="WorkCard" ToRole="FamilyComposition" />
+          <NavigationProperty Name="KindWork" Relationship="Self.FK_WorkCard_KindWork" FromRole="WorkCard" ToRole="KindWork" />
+          <NavigationProperty Name="LanguageKnowledgeType" Relationship="Self.FK_WorkCard_LanguageKnowledgeType" FromRole="WorkCard" ToRole="LanguageKnowledgeType" />
+          <NavigationProperty Name="LanguageName" Relationship="Self.FK_WorkCard_LanguageName" FromRole="WorkCard" ToRole="LanguageName" />
+          <NavigationProperty Name="MaritalStatus" Relationship="Self.FK_WorkCard_MaritalStatus" FromRole="WorkCard" ToRole="MaritalStatus" />
+          <NavigationProperty Name="PlaceBirth" Relationship="Self.FK_WorkCard_PlaceBirth" FromRole="WorkCard" ToRole="PlaceBirth" />
+          <NavigationProperty Name="Profession" Relationship="Self.FK_WorkCard_Profession" FromRole="WorkCard" ToRole="Profession" />
+          <NavigationProperty Name="Sex" Relationship="Self.FK_WorkCard_Sex" FromRole="WorkCard" ToRole="Sex" />
+          <NavigationProperty Name="TypeWork" Relationship="Self.FK_WorkCard_TypeWork" FromRole="WorkCard" ToRole="TypeWork" />
+        </EntityType>
         <EntityType Name="Worker">
           <Key>
             <PropertyRef Name="IdWorker" />
@@ -2021,31 +2092,25 @@
           <Property Name="IdWorkExperience" Type="Int32" Nullable="false" />
           <Property Name="IdMaritalStatus" Type="Int32" Nullable="false" />
           <Property Name="IdFamilyComposition" Type="Int32" Nullable="false" />
-          <Property Name="PassportNumber" Type="Int32" Nullable="false" />
+          <Property Name="PassportNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PassportDateIssue" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="PassportAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ActualAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PassportAddressIndex" Type="Int32" Nullable="false" />
+          <Property Name="PassportAddressIndex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="NumberPhone" Type="Int32" Nullable="false" />
+          <Property Name="NumberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdPersonalCard" Type="Int32" Nullable="false" />
-          <Property Name="ActualAddressIndex" Type="Int32" Nullable="false" />
-          <Property Name="ServiceNumber" Type="Int32" Nullable="false" />
-          <Property Name="INN" Type="Int32" Nullable="false" />
-          <Property Name="SNILS" Type="Int32" Nullable="false" />
+          <Property Name="ActualAddressIndex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SNILS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdSex" Type="Int32" Nullable="false" />
           <Property Name="IdMilitaryRegistration" Type="Int32" Nullable="false" />
           <Property Name="PassportGet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UsersId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Citizenship" Relationship="Self.FK_Worker_Citizenship" FromRole="Worker" ToRole="Citizenship" />
-          <NavigationProperty Name="Education" Relationship="Self.FK_Worker_Education" FromRole="Worker" ToRole="Education" />
-          <NavigationProperty Name="FamilyComposition" Relationship="Self.FK_Worker_FamilyComposition" FromRole="Worker" ToRole="FamilyComposition" />
-          <NavigationProperty Name="LanguageKnowledge" Relationship="Self.FK_Worker_LanguageKnowledge" FromRole="Worker" ToRole="LanguageKnowledge" />
-          <NavigationProperty Name="MaritalStatus" Relationship="Self.FK_Worker_MaritalStatus" FromRole="Worker" ToRole="MaritalStatus" />
+          <Property Name="BirthDateCode" Type="Int32" Nullable="false" />
+          <Property Name="IdQualification" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PersonalCard" Relationship="Self.FK_Worker_PersonalCard" FromRole="Worker" ToRole="PersonalCard" />
-          <NavigationProperty Name="PlaceBirth" Relationship="Self.FK_Worker_PlaceBirth" FromRole="Worker" ToRole="PlaceBirth" />
-          <NavigationProperty Name="Profession" Relationship="Self.FK_Worker_Profession" FromRole="Worker" ToRole="Profession" />
-          <NavigationProperty Name="Sex" Relationship="Self.FK_Worker_Sex" FromRole="Worker" ToRole="Sex" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Worker_Users" FromRole="Worker" ToRole="Users" />
           <NavigationProperty Name="WorkExperience" Relationship="Self.FK_Worker_WorkExperience" FromRole="Worker" ToRole="WorkExperience" />
         </EntityType>
@@ -2165,26 +2230,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_Citizenship">
+        <Association Name="FK_WorkCard_Citizenship">
           <End Role="Citizenship" Type="Self.Citizenship" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Citizenship">
               <PropertyRef Name="IdCitizenship" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdCitizenship" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonalCard_Company">
+        <Association Name="FK_WorkCard_Company">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">
               <PropertyRef Name="IdCompany" />
             </Principal>
-            <Dependent Role="PersonalCard">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdCompany" />
             </Dependent>
           </ReferentialConstraint>
@@ -2261,31 +2326,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Education_DocumentAboutEducation">
-          <End Role="DocumentAboutEducation" Type="Self.DocumentAboutEducation" Multiplicity="1" />
-          <End Role="Education" Type="Self.Education" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DocumentAboutEducation">
-              <PropertyRef Name="IdDocumentAboutEducation" />
-            </Principal>
-            <Dependent Role="Education">
-              <PropertyRef Name="IdDocumentAboutEducation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Education_EducationTitle">
-          <End Role="EducationTitle" Type="Self.EducationTitle" Multiplicity="1" />
-          <End Role="Education" Type="Self.Education" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EducationTitle">
-              <PropertyRef Name="EducationTitleId" />
-            </Principal>
-            <Dependent Role="Education">
-              <PropertyRef Name="EducationTitleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Education_Qualification">
+        <Association Name="FK_Education_Qualification1">
           <End Role="Qualification" Type="Self.Qualification" Multiplicity="1" />
           <End Role="Education" Type="Self.Education" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2297,15 +2338,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_Education">
-          <End Role="Education" Type="Self.Education" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+        <Association Name="FK_WorkCard_EducationTitle">
+          <End Role="EducationTitle" Type="Self.EducationTitle" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Education">
-              <PropertyRef Name="IdEducation" />
+            <Principal Role="EducationTitle">
+              <PropertyRef Name="EducationTitleId" />
             </Principal>
-            <Dependent Role="Worker">
-              <PropertyRef Name="IdEducation" />
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="EducationTitleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2321,98 +2362,122 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonalCard_EmploymentContract">
-          <End Role="EmploymentContract" Type="Self.EmploymentContract" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmploymentContract">
-              <PropertyRef Name="IdEmploymentContract" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdEmploymentContract" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Worker_FamilyComposition">
+        <Association Name="FK_WorkCard_FamilyComposition">
           <End Role="FamilyComposition" Type="Self.FamilyComposition" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FamilyComposition">
               <PropertyRef Name="IdFamilyComposition" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdFamilyComposition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_HiringTransfersOtherJobs_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
-          <End Role="HiringTransfersOtherJobs" Type="Self.HiringTransfersOtherJobs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="IdPosition" />
-            </Principal>
-            <Dependent Role="HiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs">
+        <Association Name="FK_HiringRetraining_HiringTransfersOtherJobs">
           <End Role="HiringTransfersOtherJobs" Type="Self.HiringTransfersOtherJobs" Multiplicity="1" />
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="0..1" />
+          <End Role="HiringRetraining" Type="Self.HiringRetraining" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HiringTransfersOtherJobs">
               <PropertyRef Name="IdHiringTransfersOtherJobs" />
             </Principal>
-            <Dependent Role="ProfessionalRetrainingHiringTransfersOtherJobs">
+            <Dependent Role="HiringRetraining">
+              <PropertyRef Name="IdHiringTransfersOtherJobs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HiringRetraining_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="HiringRetraining" Type="Self.HiringRetraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="IdPosition" />
+            </Principal>
+            <Dependent Role="HiringRetraining">
               <PropertyRef Name="IdPosition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonalCard_KindWork">
+        <Association Name="FK_HiringRetraining_ProfessionalRetraining">
+          <End Role="ProfessionalRetraining" Type="Self.ProfessionalRetraining" Multiplicity="1" />
+          <End Role="HiringRetraining" Type="Self.HiringRetraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfessionalRetraining">
+              <PropertyRef Name="IdProfessionalRetraining" />
+            </Principal>
+            <Dependent Role="HiringRetraining">
+              <PropertyRef Name="IdProfessionalRetraining" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_KindWork">
           <End Role="KindWork" Type="Self.KindWork" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KindWork">
               <PropertyRef Name="IdKindWork" />
             </Principal>
-            <Dependent Role="PersonalCard">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdKindWork" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LanguageKnowledge_LanguageKnowledgeType">
+        <Association Name="FK_WorkCard_LanguageKnowledgeType">
           <End Role="LanguageKnowledgeType" Type="Self.LanguageKnowledgeType" Multiplicity="1" />
-          <End Role="LanguageKnowledge" Type="Self.LanguageKnowledge" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LanguageKnowledgeType">
               <PropertyRef Name="IdLanguageKnowledgeType" />
             </Principal>
-            <Dependent Role="LanguageKnowledge">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdLanguageKnowledgeType" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_LanguageKnowledge">
-          <End Role="LanguageKnowledge" Type="Self.LanguageKnowledge" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+        <Association Name="FK_WorkCard_LanguageName">
+          <End Role="LanguageName" Type="Self.LanguageName" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LanguageKnowledge">
-              <PropertyRef Name="IdLanguageKnowledge" />
+            <Principal Role="LanguageName">
+              <PropertyRef Name="IdLanguageName" />
             </Principal>
-            <Dependent Role="Worker">
-              <PropertyRef Name="IdLanguageKnowledge" />
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdLanguageName" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_MaritalStatus">
+        <Association Name="FK_Manager_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RolesId" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="RolesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UsersId" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="UsersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_MaritalStatus">
           <End Role="MaritalStatus" Type="Self.MaritalStatus" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MaritalStatus">
               <PropertyRef Name="IdMaritalStatus" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdMaritalStatus" />
             </Dependent>
           </ReferentialConstraint>
@@ -2441,7 +2506,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MilitaryRecords_Position">
+        <Association Name="FK_MilitaryRecords_Position1">
           <End Role="Position" Type="Self.Position" Multiplicity="1" />
           <End Role="MilitaryRecords" Type="Self.MilitaryRecords" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2513,30 +2578,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonalCard_Sex">
-          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sex">
-              <PropertyRef Name="IdSex" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdSex" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonalCard_TypeWork">
-          <End Role="TypeWork" Type="Self.TypeWork" Multiplicity="1" />
-          <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeWork">
-              <PropertyRef Name="IdTypeWork" />
-            </Principal>
-            <Dependent Role="PersonalCard">
-              <PropertyRef Name="IdTypeWork" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PersonalCard_Vacation">
           <End Role="Vacation" Type="Self.Vacation" Multiplicity="1" />
           <End Role="PersonalCard" Type="Self.PersonalCard" Multiplicity="*" />
@@ -2561,38 +2602,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_PlaceBirth">
+        <Association Name="FK_WorkCard_PlaceBirth">
           <End Role="PlaceBirth" Type="Self.PlaceBirth" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PlaceBirth">
               <PropertyRef Name="IdPlaceBirth" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdPlaceBirth" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="IdPosition" />
-            </Principal>
-            <Dependent Role="ProfessionalRetrainingHiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Worker_Profession">
+        <Association Name="FK_WorkCard_Profession">
           <End Role="Profession" Type="Self.Profession" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Profession">
               <PropertyRef Name="IdProfession" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdProfession" />
             </Dependent>
           </ReferentialConstraint>
@@ -2633,30 +2662,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs">
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="1" />
-          <End Role="ProfessionalRetraining" Type="Self.ProfessionalRetraining" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProfessionalRetrainingHiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Principal>
-            <Dependent Role="ProfessionalRetraining">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining">
-          <End Role="ProfessionalRetraining" Type="Self.ProfessionalRetraining" Multiplicity="1" />
-          <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" Type="Self.ProfessionalRetrainingHiringTransfersOtherJobs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="ProfessionalRetraining">
-              <PropertyRef Name="IdProfessionalRetraining" />
-            </Principal>
-            <Dependent Role="ProfessionalRetrainingHiringTransfersOtherJobs">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rewards_RewardDocument">
           <End Role="RewardDocument" Type="Self.RewardDocument" Multiplicity="1" />
           <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
@@ -2681,15 +2686,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Worker_Sex">
+        <Association Name="FK_WorkCard_Sex">
           <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
-          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sex">
               <PropertyRef Name="IdSex" />
             </Principal>
-            <Dependent Role="Worker">
+            <Dependent Role="WorkCard">
               <PropertyRef Name="IdSex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCard_TypeWork">
+          <End Role="TypeWork" Type="Self.TypeWork" Multiplicity="1" />
+          <End Role="WorkCard" Type="Self.WorkCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeWork">
+              <PropertyRef Name="IdTypeWork" />
+            </Principal>
+            <Dependent Role="WorkCard">
+              <PropertyRef Name="IdTypeWork" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2765,7 +2782,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="vkr_Otdel_KadrovEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AdmissionAndDismissal" EntityType="Self.AdmissionAndDismissal" />
           <EntitySet Name="BenefitDocument" EntityType="Self.BenefitDocument" />
           <EntitySet Name="Benefits" EntityType="Self.Benefits" />
@@ -2785,11 +2802,14 @@
           <EntitySet Name="EligibilityCategory" EntityType="Self.EligibilityCategory" />
           <EntitySet Name="EmploymentContract" EntityType="Self.EmploymentContract" />
           <EntitySet Name="FamilyComposition" EntityType="Self.FamilyComposition" />
+          <EntitySet Name="HiringRetraining" EntityType="Self.HiringRetraining" />
           <EntitySet Name="HiringTransfersOtherJobs" EntityType="Self.HiringTransfersOtherJobs" />
           <EntitySet Name="HRworker" EntityType="Self.HRworker" />
           <EntitySet Name="KindWork" EntityType="Self.KindWork" />
           <EntitySet Name="LanguageKnowledge" EntityType="Self.LanguageKnowledge" />
           <EntitySet Name="LanguageKnowledgeType" EntityType="Self.LanguageKnowledgeType" />
+          <EntitySet Name="LanguageName" EntityType="Self.LanguageName" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" />
           <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" />
           <EntitySet Name="MilitaryCommissariat" EntityType="Self.MilitaryCommissariat" />
           <EntitySet Name="MilitaryRank" EntityType="Self.MilitaryRank" />
@@ -2803,7 +2823,6 @@
           <EntitySet Name="ProfessionalDevelopmentType" EntityType="Self.ProfessionalDevelopmentType" />
           <EntitySet Name="ProfessionalRetraining" EntityType="Self.ProfessionalRetraining" />
           <EntitySet Name="ProfessionalRetrainingDocument" EntityType="Self.ProfessionalRetrainingDocument" />
-          <EntitySet Name="ProfessionalRetrainingHiringTransfersOtherJobs" EntityType="Self.ProfessionalRetrainingHiringTransfersOtherJobs" />
           <EntitySet Name="Qualification" EntityType="Self.Qualification" />
           <EntitySet Name="RewardDocument" EntityType="Self.RewardDocument" />
           <EntitySet Name="Rewards" EntityType="Self.Rewards" />
@@ -2814,6 +2833,7 @@
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="Vacation" EntityType="Self.Vacation" />
           <EntitySet Name="VacationType" EntityType="Self.VacationType" />
+          <EntitySet Name="WorkCard" EntityType="Self.WorkCard" />
           <EntitySet Name="Worker" EntityType="Self.Worker" />
           <EntitySet Name="WorkExperience" EntityType="Self.WorkExperience" />
           <EntitySet Name="WorkExperienceBonus" EntityType="Self.WorkExperienceBonus" />
@@ -2843,13 +2863,13 @@
             <End Role="Certification" EntitySet="Certification" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_Citizenship" Association="Self.FK_Worker_Citizenship">
+          <AssociationSet Name="FK_WorkCard_Citizenship" Association="Self.FK_WorkCard_Citizenship">
             <End Role="Citizenship" EntitySet="Citizenship" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_Company" Association="Self.FK_PersonalCard_Company">
+          <AssociationSet Name="FK_WorkCard_Company" Association="Self.FK_WorkCard_Company">
             <End Role="Company" EntitySet="Company" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
           <AssociationSet Name="FK_MilitaryRecords_CompositionProfile" Association="Self.FK_MilitaryRecords_CompositionProfile">
             <End Role="CompositionProfile" EntitySet="CompositionProfile" />
@@ -2875,57 +2895,57 @@
             <End Role="Dismissal" EntitySet="Dismissal" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Education_DocumentAboutEducation" Association="Self.FK_Education_DocumentAboutEducation">
-            <End Role="DocumentAboutEducation" EntitySet="DocumentAboutEducation" />
-            <End Role="Education" EntitySet="Education" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Education_EducationTitle" Association="Self.FK_Education_EducationTitle">
-            <End Role="EducationTitle" EntitySet="EducationTitle" />
-            <End Role="Education" EntitySet="Education" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Education_Qualification" Association="Self.FK_Education_Qualification">
+          <AssociationSet Name="FK_Education_Qualification1" Association="Self.FK_Education_Qualification1">
             <End Role="Qualification" EntitySet="Qualification" />
             <End Role="Education" EntitySet="Education" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_Education" Association="Self.FK_Worker_Education">
-            <End Role="Education" EntitySet="Education" />
-            <End Role="Worker" EntitySet="Worker" />
+          <AssociationSet Name="FK_WorkCard_EducationTitle" Association="Self.FK_WorkCard_EducationTitle">
+            <End Role="EducationTitle" EntitySet="EducationTitle" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
           <AssociationSet Name="FK_MilitaryRecords_EligibilityCategory" Association="Self.FK_MilitaryRecords_EligibilityCategory">
             <End Role="EligibilityCategory" EntitySet="EligibilityCategory" />
             <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_EmploymentContract" Association="Self.FK_PersonalCard_EmploymentContract">
-            <End Role="EmploymentContract" EntitySet="EmploymentContract" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Worker_FamilyComposition" Association="Self.FK_Worker_FamilyComposition">
+          <AssociationSet Name="FK_WorkCard_FamilyComposition" Association="Self.FK_WorkCard_FamilyComposition">
             <End Role="FamilyComposition" EntitySet="FamilyComposition" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_HiringTransfersOtherJobs_Position" Association="Self.FK_HiringTransfersOtherJobs_Position">
+          <AssociationSet Name="FK_HiringRetraining_HiringTransfersOtherJobs" Association="Self.FK_HiringRetraining_HiringTransfersOtherJobs">
+            <End Role="HiringTransfersOtherJobs" EntitySet="HiringTransfersOtherJobs" />
+            <End Role="HiringRetraining" EntitySet="HiringRetraining" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HiringRetraining_Position" Association="Self.FK_HiringRetraining_Position">
             <End Role="Position" EntitySet="Position" />
-            <End Role="HiringTransfersOtherJobs" EntitySet="HiringTransfersOtherJobs" />
+            <End Role="HiringRetraining" EntitySet="HiringRetraining" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs" Association="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_HiringTransfersOtherJobs">
-            <End Role="HiringTransfersOtherJobs" EntitySet="HiringTransfersOtherJobs" />
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
+          <AssociationSet Name="FK_HiringRetraining_ProfessionalRetraining" Association="Self.FK_HiringRetraining_ProfessionalRetraining">
+            <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
+            <End Role="HiringRetraining" EntitySet="HiringRetraining" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_KindWork" Association="Self.FK_PersonalCard_KindWork">
+          <AssociationSet Name="FK_WorkCard_KindWork" Association="Self.FK_WorkCard_KindWork">
             <End Role="KindWork" EntitySet="KindWork" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_LanguageKnowledge_LanguageKnowledgeType" Association="Self.FK_LanguageKnowledge_LanguageKnowledgeType">
+          <AssociationSet Name="FK_WorkCard_LanguageKnowledgeType" Association="Self.FK_WorkCard_LanguageKnowledgeType">
             <End Role="LanguageKnowledgeType" EntitySet="LanguageKnowledgeType" />
-            <End Role="LanguageKnowledge" EntitySet="LanguageKnowledge" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_LanguageKnowledge" Association="Self.FK_Worker_LanguageKnowledge">
-            <End Role="LanguageKnowledge" EntitySet="LanguageKnowledge" />
-            <End Role="Worker" EntitySet="Worker" />
+          <AssociationSet Name="FK_WorkCard_LanguageName" Association="Self.FK_WorkCard_LanguageName">
+            <End Role="LanguageName" EntitySet="LanguageName" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_MaritalStatus" Association="Self.FK_Worker_MaritalStatus">
+          <AssociationSet Name="FK_Manager_Roles" Association="Self.FK_Manager_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_Users" Association="Self.FK_Manager_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_MaritalStatus" Association="Self.FK_WorkCard_MaritalStatus">
             <End Role="MaritalStatus" EntitySet="MaritalStatus" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
           <AssociationSet Name="FK_MilitaryRecords_MilitaryCommissariat" Association="Self.FK_MilitaryRecords_MilitaryCommissariat">
             <End Role="MilitaryCommissariat" EntitySet="MilitaryCommissariat" />
@@ -2935,7 +2955,7 @@
             <End Role="MilitaryRank" EntitySet="MilitaryRank" />
             <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
           </AssociationSet>
-          <AssociationSet Name="FK_MilitaryRecords_Position" Association="Self.FK_MilitaryRecords_Position">
+          <AssociationSet Name="FK_MilitaryRecords_Position1" Association="Self.FK_MilitaryRecords_Position1">
             <End Role="Position" EntitySet="Position" />
             <End Role="MilitaryRecords" EntitySet="MilitaryRecords" />
           </AssociationSet>
@@ -2959,14 +2979,6 @@
             <End Role="Rewards" EntitySet="Rewards" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_Sex" Association="Self.FK_PersonalCard_Sex">
-            <End Role="Sex" EntitySet="Sex" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonalCard_TypeWork" Association="Self.FK_PersonalCard_TypeWork">
-            <End Role="TypeWork" EntitySet="TypeWork" />
-            <End Role="PersonalCard" EntitySet="PersonalCard" />
-          </AssociationSet>
           <AssociationSet Name="FK_PersonalCard_Vacation" Association="Self.FK_PersonalCard_Vacation">
             <End Role="Vacation" EntitySet="Vacation" />
             <End Role="PersonalCard" EntitySet="PersonalCard" />
@@ -2975,17 +2987,13 @@
             <End Role="PersonalCard" EntitySet="PersonalCard" />
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_PlaceBirth" Association="Self.FK_Worker_PlaceBirth">
+          <AssociationSet Name="FK_WorkCard_PlaceBirth" Association="Self.FK_WorkCard_PlaceBirth">
             <End Role="PlaceBirth" EntitySet="PlaceBirth" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position" Association="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Worker_Profession" Association="Self.FK_Worker_Profession">
+          <AssociationSet Name="FK_WorkCard_Profession" Association="Self.FK_WorkCard_Profession">
             <End Role="Profession" EntitySet="Profession" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
           <AssociationSet Name="FK_ProfessionalDevelopment_ProfessionalDevelopmentDocumentation" Association="Self.FK_ProfessionalDevelopment_ProfessionalDevelopmentDocumentation">
             <End Role="ProfessionalDevelopmentDocumentation" EntitySet="ProfessionalDevelopmentDocumentation" />
@@ -2999,14 +3007,6 @@
             <End Role="ProfessionalRetrainingDocument" EntitySet="ProfessionalRetrainingDocument" />
             <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs" Association="Self.FK_ProfessionalRetraining_ProfessionalRetrainingHiringTransfersOtherJobs">
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
-            <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining" Association="Self.FK_ProfessionalRetrainingHiringTransfersOtherJobs_ProfessionalRetraining">
-            <End Role="ProfessionalRetraining" EntitySet="ProfessionalRetraining" />
-            <End Role="ProfessionalRetrainingHiringTransfersOtherJobs" EntitySet="ProfessionalRetrainingHiringTransfersOtherJobs" />
-          </AssociationSet>
           <AssociationSet Name="FK_Rewards_RewardDocument" Association="Self.FK_Rewards_RewardDocument">
             <End Role="RewardDocument" EntitySet="RewardDocument" />
             <End Role="Rewards" EntitySet="Rewards" />
@@ -3015,9 +3015,13 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_Worker_Sex" Association="Self.FK_Worker_Sex">
+          <AssociationSet Name="FK_WorkCard_Sex" Association="Self.FK_WorkCard_Sex">
             <End Role="Sex" EntitySet="Sex" />
-            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCard_TypeWork" Association="Self.FK_WorkCard_TypeWork">
+            <End Role="TypeWork" EntitySet="TypeWork" />
+            <End Role="WorkCard" EntitySet="WorkCard" />
           </AssociationSet>
           <AssociationSet Name="FK_Worker_Users" Association="Self.FK_Worker_Users">
             <End Role="Users" EntitySet="Users" />
@@ -3049,7 +3053,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище vkr_Otdel_KadrovModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище vkr_Otdel_KadrovModelContainer" CdmEntityContainer="vkr_Otdel_KadrovEntities5">
           <EntitySetMapping Name="AdmissionAndDismissal">
             <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.AdmissionAndDismissal">
               <MappingFragment StoreEntitySet="AdmissionAndDismissal">
@@ -3115,7 +3119,6 @@
               <MappingFragment StoreEntitySet="Citizenship">
                 <ScalarProperty Name="IdCitizenship" ColumnName="IdCitizenship" />
                 <ScalarProperty Name="Citizenship1" ColumnName="Citizenship" />
-                <ScalarProperty Name="CitizenshipCode" ColumnName="CitizenshipCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3124,7 +3127,6 @@
               <MappingFragment StoreEntitySet="Company">
                 <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
                 <ScalarProperty Name="TitleCompany" ColumnName="TitleCompany" />
-                <ScalarProperty Name="TitleCompanyCode" ColumnName="TitleCompanyCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3149,7 +3151,6 @@
               <MappingFragment StoreEntitySet="DirectionOrSpecialty">
                 <ScalarProperty Name="IdDirectionOrSpecialty" ColumnName="IdDirectionOrSpecialty" />
                 <ScalarProperty Name="DirectionOrSpecialty1" ColumnName="DirectionOrSpecialty" />
-                <ScalarProperty Name="DirectionOrSpecialtyCode" ColumnName="DirectionOrSpecialtyCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3189,12 +3190,10 @@
               <MappingFragment StoreEntitySet="Education">
                 <ScalarProperty Name="IdEducation" ColumnName="IdEducation" />
                 <ScalarProperty Name="EducationalInstitution" ColumnName="EducationalInstitution" />
-                <ScalarProperty Name="IdDocumentAboutEducation" ColumnName="IdDocumentAboutEducation" />
                 <ScalarProperty Name="FinishEducation" ColumnName="FinishEducation" />
                 <ScalarProperty Name="IdQualification" ColumnName="IdQualification" />
                 <ScalarProperty Name="IdDirectionOrSpecialty" ColumnName="IdDirectionOrSpecialty" />
                 <ScalarProperty Name="EducationCode" ColumnName="EducationCode" />
-                <ScalarProperty Name="EducationTitleId" ColumnName="EducationTitleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3228,10 +3227,16 @@
               <MappingFragment StoreEntitySet="FamilyComposition">
                 <ScalarProperty Name="IdFamilyComposition" ColumnName="IdFamilyComposition" />
                 <ScalarProperty Name="DegreeKinship" ColumnName="DegreeKinship" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HiringRetraining">
+            <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.HiringRetraining">
+              <MappingFragment StoreEntitySet="HiringRetraining">
+                <ScalarProperty Name="HiringRetrainingId" ColumnName="HiringRetrainingId" />
+                <ScalarProperty Name="IdHiringTransfersOtherJobs" ColumnName="IdHiringTransfersOtherJobs" />
+                <ScalarProperty Name="IdProfessionalRetraining" ColumnName="IdProfessionalRetraining" />
+                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3281,7 +3286,23 @@
               <MappingFragment StoreEntitySet="LanguageKnowledgeType">
                 <ScalarProperty Name="IdLanguageKnowledgeType" ColumnName="IdLanguageKnowledgeType" />
                 <ScalarProperty Name="LanguageKnowledgeType1" ColumnName="LanguageKnowledgeType" />
-                <ScalarProperty Name="LanguageKnowledgeTypeCode" ColumnName="LanguageKnowledgeTypeCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LanguageName">
+            <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.LanguageName">
+              <MappingFragment StoreEntitySet="LanguageName">
+                <ScalarProperty Name="IdLanguageName" ColumnName="IdLanguageName" />
+                <ScalarProperty Name="LanguageNameTitle" ColumnName="LanguageNameTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="IdManager" ColumnName="IdManager" />
+                <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+                <ScalarProperty Name="RolesId" ColumnName="RolesId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3290,7 +3311,6 @@
               <MappingFragment StoreEntitySet="MaritalStatus">
                 <ScalarProperty Name="IdMaritalStatus" ColumnName="IdMaritalStatus" />
                 <ScalarProperty Name="MaritalStatus1" ColumnName="MaritalStatus" />
-                <ScalarProperty Name="MaritalStatusCode" ColumnName="MaritalStatusCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3362,7 +3382,6 @@
               <MappingFragment StoreEntitySet="PlaceBirth">
                 <ScalarProperty Name="IdPlaceBirth" ColumnName="IdPlaceBirth" />
                 <ScalarProperty Name="PlaceBirth1" ColumnName="PlaceBirth" />
-                <ScalarProperty Name="PlaceBirthCode" ColumnName="PlaceBirthCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3378,10 +3397,7 @@
             <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.Profession">
               <MappingFragment StoreEntitySet="Profession">
                 <ScalarProperty Name="IdProfession" ColumnName="IdProfession" />
-                <ScalarProperty Name="BaseProfession" ColumnName="BaseProfession" />
-                <ScalarProperty Name="OtherProfession" ColumnName="OtherProfession" />
-                <ScalarProperty Name="BaseProfessionCode" ColumnName="BaseProfessionCode" />
-                <ScalarProperty Name="OtherProfessionCode" ColumnName="OtherProfessionCode" />
+                <ScalarProperty Name="Profession1" ColumnName="Profession" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3436,13 +3452,6 @@
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProfessionalRetrainingHiringTransfersOtherJobs">
-            <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.ProfessionalRetrainingHiringTransfersOtherJobs">
-              <MappingFragment StoreEntitySet="ProfessionalRetrainingHiringTransfersOtherJobs">
-                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3537,6 +3546,66 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="WorkCard">
+            <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.WorkCard">
+              <MappingFragment StoreEntitySet="WorkCard">
+                <ScalarProperty Name="IdWorkCard" ColumnName="IdWorkCard" />
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ServiceNumber" ColumnName="ServiceNumber" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+                <ScalarProperty Name="FirstLetter" ColumnName="FirstLetter" />
+                <ScalarProperty Name="IdKindWork" ColumnName="IdKindWork" />
+                <ScalarProperty Name="IdTypeWork" ColumnName="IdTypeWork" />
+                <ScalarProperty Name="IdSex" ColumnName="IdSex" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+                <ScalarProperty Name="DateBirthCode" ColumnName="DateBirthCode" />
+                <ScalarProperty Name="IdPlaceBirth" ColumnName="IdPlaceBirth" />
+                <ScalarProperty Name="PlaceBirthCode" ColumnName="PlaceBirthCode" />
+                <ScalarProperty Name="IdCitizenship" ColumnName="IdCitizenship" />
+                <ScalarProperty Name="CitizenshipCode" ColumnName="CitizenshipCode" />
+                <ScalarProperty Name="IdLanguageName" ColumnName="IdLanguageName" />
+                <ScalarProperty Name="LanguageNameCode" ColumnName="LanguageNameCode" />
+                <ScalarProperty Name="IdLanguageKnowledgeType" ColumnName="IdLanguageKnowledgeType" />
+                <ScalarProperty Name="EducationTitleId" ColumnName="EducationTitleId" />
+                <ScalarProperty Name="EducationTitleCode" ColumnName="EducationTitleCode" />
+                <ScalarProperty Name="IdProfession" ColumnName="IdProfession" />
+                <ScalarProperty Name="ProfessionCode" ColumnName="ProfessionCode" />
+                <ScalarProperty Name="WorkExpDate" ColumnName="WorkExpDate" />
+                <ScalarProperty Name="WorkExpTotalDays" ColumnName="WorkExpTotalDays" />
+                <ScalarProperty Name="WorkExpTotalMonths" ColumnName="WorkExpTotalMonths" />
+                <ScalarProperty Name="WorkExpTotalYears" ColumnName="WorkExpTotalYears" />
+                <ScalarProperty Name="WorkExpConDays" ColumnName="WorkExpConDays" />
+                <ScalarProperty Name="WorkExpConMonths" ColumnName="WorkExpConMonths" />
+                <ScalarProperty Name="WokrExpConYears" ColumnName="WokrExpConYears" />
+                <ScalarProperty Name="WorkExpBonusDays" ColumnName="WorkExpBonusDays" />
+                <ScalarProperty Name="WorkExpBounsMonths" ColumnName="WorkExpBounsMonths" />
+                <ScalarProperty Name="WorkExpBonusYears" ColumnName="WorkExpBonusYears" />
+                <ScalarProperty Name="IdMaritalStatus" ColumnName="IdMaritalStatus" />
+                <ScalarProperty Name="MaritalStatusCode" ColumnName="MaritalStatusCode" />
+                <ScalarProperty Name="IdFamilyComposition" ColumnName="IdFamilyComposition" />
+                <ScalarProperty Name="FamilyCompositionLastName" ColumnName="FamilyCompositionLastName" />
+                <ScalarProperty Name="FamilyCompositionName" ColumnName="FamilyCompositionName" />
+                <ScalarProperty Name="FamilyCompositionMiddleName" ColumnName="FamilyCompositionMiddleName" />
+                <ScalarProperty Name="FamilyCompositionBirthDate" ColumnName="FamilyCompositionBirthDate" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PassportGetDate" ColumnName="PassportGetDate" />
+                <ScalarProperty Name="PassportWhoGet" ColumnName="PassportWhoGet" />
+                <ScalarProperty Name="ActualAddressIndex" ColumnName="ActualAddressIndex" />
+                <ScalarProperty Name="ActualAddress" ColumnName="ActualAddress" />
+                <ScalarProperty Name="PassportIndex" ColumnName="PassportIndex" />
+                <ScalarProperty Name="PassportAddress" ColumnName="PassportAddress" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="TitleCompanyCode" ColumnName="TitleCompanyCode" />
+                <ScalarProperty Name="DirectionOrSpecialtyCode" ColumnName="DirectionOrSpecialtyCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Worker">
             <EntityTypeMapping TypeName="vkr_Otdel_KadrovModel.Worker">
               <MappingFragment StoreEntitySet="Worker">
@@ -3569,6 +3638,8 @@
                 <ScalarProperty Name="IdMilitaryRegistration" ColumnName="IdMilitaryRegistration" />
                 <ScalarProperty Name="PassportGet" ColumnName="PassportGet" />
                 <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+                <ScalarProperty Name="BirthDateCode" ColumnName="BirthDateCode" />
+                <ScalarProperty Name="IdQualification" ColumnName="IdQualification" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

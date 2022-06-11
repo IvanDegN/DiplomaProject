@@ -17,16 +17,13 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profession()
         {
-            this.Worker = new HashSet<Worker>();
+            this.WorkCard = new HashSet<WorkCard>();
         }
     
         public int IdProfession { get; set; }
-        public string BaseProfession { get; set; }
-        public string OtherProfession { get; set; }
-        public int BaseProfessionCode { get; set; }
-        public Nullable<int> OtherProfessionCode { get; set; }
+        public string Profession1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Worker> Worker { get; set; }
+        public virtual ICollection<WorkCard> WorkCard { get; set; }
     }
 }

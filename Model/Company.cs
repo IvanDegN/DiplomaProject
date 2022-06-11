@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace DiplomaProject
 {
-    public static class DB
+    public partial class Company
     {
-       public static vkr_Otdel_KadrovEntities5 db = new vkr_Otdel_KadrovEntities5();
+        public override string ToString()
+        {
+            return TitleCompany.ToString();
+        }
     }
 }

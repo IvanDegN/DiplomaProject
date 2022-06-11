@@ -27,32 +27,26 @@ namespace DiplomaProject
         public int IdWorkExperience { get; set; }
         public int IdMaritalStatus { get; set; }
         public int IdFamilyComposition { get; set; }
-        public int PassportNumber { get; set; }
+        public string PassportNumber { get; set; }
         public System.DateTime PassportDateIssue { get; set; }
         public string PassportAddress { get; set; }
         public string ActualAddress { get; set; }
-        public int PassportAddressIndex { get; set; }
+        public string PassportAddressIndex { get; set; }
         public System.DateTime RegistrationDate { get; set; }
-        public int NumberPhone { get; set; }
+        public string NumberPhone { get; set; }
         public int IdPersonalCard { get; set; }
-        public int ActualAddressIndex { get; set; }
-        public int ServiceNumber { get; set; }
-        public int INN { get; set; }
-        public int SNILS { get; set; }
+        public string ActualAddressIndex { get; set; }
+        public string ServiceNumber { get; set; }
+        public string INN { get; set; }
+        public string SNILS { get; set; }
         public int IdSex { get; set; }
         public int IdMilitaryRegistration { get; set; }
         public string PassportGet { get; set; }
         public int UsersId { get; set; }
+        public int BirthDateCode { get; set; }
+        public int IdQualification { get; set; }
     
-        public virtual Citizenship Citizenship { get; set; }
-        public virtual Education Education { get; set; }
-        public virtual FamilyComposition FamilyComposition { get; set; }
-        public virtual LanguageKnowledge LanguageKnowledge { get; set; }
-        public virtual MaritalStatus MaritalStatus { get; set; }
         public virtual PersonalCard PersonalCard { get; set; }
-        public virtual PlaceBirth PlaceBirth { get; set; }
-        public virtual Profession Profession { get; set; }
-        public virtual Sex Sex { get; set; }
         public virtual Users Users { get; set; }
         public virtual WorkExperience WorkExperience { get; set; }
     }

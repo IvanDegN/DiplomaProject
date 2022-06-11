@@ -12,20 +12,18 @@ namespace DiplomaProject
     using System;
     using System.Collections.Generic;
     
-    public partial class ProfessionalRetrainingHiringTransfersOtherJobs
+    public partial class LanguageName
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProfessionalRetrainingHiringTransfersOtherJobs()
+        public LanguageName()
         {
-            this.ProfessionalRetraining = new HashSet<ProfessionalRetraining>();
+            this.WorkCard = new HashSet<WorkCard>();
         }
     
-        public int IdPosition { get; set; }
+        public int IdLanguageName { get; set; }
+        public string LanguageNameTitle { get; set; }
     
-        public virtual HiringTransfersOtherJobs HiringTransfersOtherJobs { get; set; }
-        public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProfessionalRetraining> ProfessionalRetraining { get; set; }
-        public virtual ProfessionalRetraining ProfessionalRetraining1 { get; set; }
+        public virtual ICollection<WorkCard> WorkCard { get; set; }
     }
 }

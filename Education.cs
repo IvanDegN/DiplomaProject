@@ -14,26 +14,14 @@ namespace DiplomaProject
     
     public partial class Education
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Education()
-        {
-            this.Worker = new HashSet<Worker>();
-        }
-    
         public int IdEducation { get; set; }
         public string EducationalInstitution { get; set; }
-        public int IdDocumentAboutEducation { get; set; }
         public System.DateTime FinishEducation { get; set; }
         public int IdQualification { get; set; }
         public int IdDirectionOrSpecialty { get; set; }
-        public int EducationCode { get; set; }
-        public int EducationTitleId { get; set; }
+        public string EducationCode { get; set; }
     
         public virtual DirectionOrSpecialty DirectionOrSpecialty { get; set; }
-        public virtual DocumentAboutEducation DocumentAboutEducation { get; set; }
-        public virtual EducationTitle EducationTitle { get; set; }
         public virtual Qualification Qualification { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Worker> Worker { get; set; }
     }
 }

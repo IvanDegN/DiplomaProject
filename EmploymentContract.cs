@@ -14,17 +14,8 @@ namespace DiplomaProject
     
     public partial class EmploymentContract
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EmploymentContract()
-        {
-            this.PersonalCard = new HashSet<PersonalCard>();
-        }
-    
         public int IdEmploymentContract { get; set; }
-        public int Number { get; set; }
+        public string Number { get; set; }
         public System.DateTime Date { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PersonalCard> PersonalCard { get; set; }
     }
 }

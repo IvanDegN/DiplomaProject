@@ -17,6 +17,7 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ProfessionalRetraining()
         {
+            this.HiringRetraining = new HashSet<HiringRetraining>();
             this.PersonalCard = new HashSet<PersonalCard>();
         }
     
@@ -28,9 +29,9 @@ namespace DiplomaProject
         public string Footing { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HiringRetraining> HiringRetraining { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonalCard> PersonalCard { get; set; }
         public virtual ProfessionalRetrainingDocument ProfessionalRetrainingDocument { get; set; }
-        public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
-        public virtual ProfessionalRetrainingHiringTransfersOtherJobs ProfessionalRetrainingHiringTransfersOtherJobs1 { get; set; }
     }
 }

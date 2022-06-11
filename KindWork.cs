@@ -17,13 +17,13 @@ namespace DiplomaProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KindWork()
         {
-            this.PersonalCard = new HashSet<PersonalCard>();
+            this.WorkCard = new HashSet<WorkCard>();
         }
     
         public int IdKindWork { get; set; }
         public string TitleKindWork { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PersonalCard> PersonalCard { get; set; }
+        public virtual ICollection<WorkCard> WorkCard { get; set; }
     }
 }

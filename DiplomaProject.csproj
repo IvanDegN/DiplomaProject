@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewEmployee.xaml.cs">
+      <DependentUpon>AddNewEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdmissionAndDismissal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -127,6 +130,9 @@
     <Compile Include="FamilyComposition.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="HiringRetraining.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="HiringTransfersOtherJobs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -140,6 +146,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="LanguageKnowledgeType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageName.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ListEmployees.xaml.cs">
@@ -165,6 +174,9 @@
     </Compile>
     <Compile Include="ManageProfessionalRetraining.xaml.cs">
       <DependentUpon>ManageProfessionalRetraining.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ManageReward.xaml.cs">
       <DependentUpon>ManageReward.xaml</DependentUpon>
@@ -212,17 +224,28 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Citizenship.cs" />
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\CompositionProfile.cs" />
     <Compile Include="Model\DB.cs" />
     <Compile Include="Model\DirectionOrSpecialty.cs" />
     <Compile Include="Model\Education.cs" />
     <Compile Include="Model\EducationTitle.cs" />
+    <Compile Include="Model\EligibilityCategory.cs" />
+    <Compile Include="Model\FamilyComposition.cs" />
+    <Compile Include="Model\KindWork.cs" />
     <Compile Include="Model\LanguageKnowledge.cs" />
     <Compile Include="Model\LanguageKnowledgeType.cs" />
+    <Compile Include="Model\LanguageName.cs" />
     <Compile Include="Model\MaritalStatus.cs" />
+    <Compile Include="Model\MilitaryRank.cs" />
     <Compile Include="Model\PlaceBirth.cs" />
+    <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Profession.cs" />
     <Compile Include="Model\Qualification.cs" />
     <Compile Include="Model\Sex.cs" />
+    <Compile Include="Model\StockCategory.cs" />
+    <Compile Include="Model\TypeWork.cs" />
+    <Compile Include="Model\Users.cs" />
     <Compile Include="PersonalCard.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -248,9 +271,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ProfessionalRetrainingDocument.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProfessionalRetrainingHiringTransfersOtherJobs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Qualification.cs">
@@ -283,6 +303,9 @@
     <Compile Include="VacationType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="WorkCard.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Worker.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -298,6 +321,10 @@
     <Compile Include="WorkExperienceTotal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="AddNewEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmployeeCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -422,8 +449,8 @@
   <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

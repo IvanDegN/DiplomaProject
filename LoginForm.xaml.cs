@@ -26,8 +26,12 @@ namespace DiplomaProject
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            // MainWindow mainWindow = new MainWindow();
+            // mainWindow.Show();
+
+            EmployeeCard employeeCard = new EmployeeCard();
+            employeeCard.Show();
+            this.Close();
         }
     }
 }

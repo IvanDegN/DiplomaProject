@@ -13,10 +13,10 @@ namespace DiplomaProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class vkr_Otdel_KadrovEntities5 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public vkr_Otdel_KadrovEntities5()
+            : base("name=vkr_Otdel_KadrovEntities5")
         {
         }
     
@@ -44,11 +44,14 @@ namespace DiplomaProject
         public virtual DbSet<EligibilityCategory> EligibilityCategory { get; set; }
         public virtual DbSet<EmploymentContract> EmploymentContract { get; set; }
         public virtual DbSet<FamilyComposition> FamilyComposition { get; set; }
+        public virtual DbSet<HiringRetraining> HiringRetraining { get; set; }
         public virtual DbSet<HiringTransfersOtherJobs> HiringTransfersOtherJobs { get; set; }
         public virtual DbSet<HRworker> HRworker { get; set; }
         public virtual DbSet<KindWork> KindWork { get; set; }
         public virtual DbSet<LanguageKnowledge> LanguageKnowledge { get; set; }
         public virtual DbSet<LanguageKnowledgeType> LanguageKnowledgeType { get; set; }
+        public virtual DbSet<LanguageName> LanguageName { get; set; }
+        public virtual DbSet<Manager> Manager { get; set; }
         public virtual DbSet<MaritalStatus> MaritalStatus { get; set; }
         public virtual DbSet<MilitaryCommissariat> MilitaryCommissariat { get; set; }
         public virtual DbSet<MilitaryRank> MilitaryRank { get; set; }
@@ -62,7 +65,6 @@ namespace DiplomaProject
         public virtual DbSet<ProfessionalDevelopmentType> ProfessionalDevelopmentType { get; set; }
         public virtual DbSet<ProfessionalRetraining> ProfessionalRetraining { get; set; }
         public virtual DbSet<ProfessionalRetrainingDocument> ProfessionalRetrainingDocument { get; set; }
-        public virtual DbSet<ProfessionalRetrainingHiringTransfersOtherJobs> ProfessionalRetrainingHiringTransfersOtherJobs { get; set; }
         public virtual DbSet<Qualification> Qualification { get; set; }
         public virtual DbSet<RewardDocument> RewardDocument { get; set; }
         public virtual DbSet<Rewards> Rewards { get; set; }
@@ -73,6 +75,7 @@ namespace DiplomaProject
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vacation> Vacation { get; set; }
         public virtual DbSet<VacationType> VacationType { get; set; }
+        public virtual DbSet<WorkCard> WorkCard { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
         public virtual DbSet<WorkExperience> WorkExperience { get; set; }
         public virtual DbSet<WorkExperienceBonus> WorkExperienceBonus { get; set; }

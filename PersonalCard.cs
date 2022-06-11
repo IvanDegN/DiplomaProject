@@ -46,16 +46,11 @@ namespace DiplomaProject
         public virtual AdmissionAndDismissal AdmissionAndDismissal { get; set; }
         public virtual Benefits Benefits { get; set; }
         public virtual Certification Certification { get; set; }
-        public virtual Company Company { get; set; }
         public virtual Dismissal Dismissal { get; set; }
-        public virtual EmploymentContract EmploymentContract { get; set; }
-        public virtual KindWork KindWork { get; set; }
         public virtual MilitaryRecords MilitaryRecords { get; set; }
         public virtual ProfessionalDevelopment ProfessionalDevelopment { get; set; }
         public virtual ProfessionalRetraining ProfessionalRetraining { get; set; }
         public virtual Rewards Rewards { get; set; }
-        public virtual Sex Sex { get; set; }
-        public virtual TypeWork TypeWork { get; set; }
         public virtual Vacation Vacation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Worker> Worker { get; set; }
